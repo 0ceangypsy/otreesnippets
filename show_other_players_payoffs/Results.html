@@ -1,0 +1,18 @@
+{{ block title }}
+    Page title
+{{ endblock }}
+
+{{ block content }}
+
+    <table>
+        {{ for other in others }}
+        <tr>
+            <td>{{ other.id_in_group }}</td>
+            <td>{{ other.payoff }}</td>
+        </tr>
+        {{ endfor }}
+    </table>
+
+{{ endblock }}
+
+
