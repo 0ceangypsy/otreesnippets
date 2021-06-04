@@ -1,9 +1,7 @@
 from otree.api import *
 
-c = Currency
-
 doc = """
-Your app description
+Menu with an 'other' option that lets you type in a value manually
 """
 
 

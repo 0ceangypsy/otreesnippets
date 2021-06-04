@@ -4,7 +4,7 @@ Page title
 {{ block content }}
 
 <p>What languages do you speak? Select all that apply.</p>
-{{ for field in form_fields }}
+{{ for field in Constants.languages }}
 <label>
     <input type="checkbox" name="{{ field }}" value="1">
     {{ field }}

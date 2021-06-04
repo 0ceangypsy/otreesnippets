@@ -11,15 +11,58 @@ SESSION_CONFIG_DEFAULTS = dict(
 
 SESSION_CONFIGS = [
     dict(
+        name='appcopy',
+        display_name='Sandwich design (App A -> App B -> App A)',
+        num_demo_participants=1,
+        app_sequence=['appcopy1', 'multi_select', 'appcopy2'],
+    ),
+    dict(
+        name='are_you_sure',
+        display_name="""'Are you sure?' popup based on the user's input""",
+        num_demo_participants=1,
+        app_sequence=['are_you_sure'],
+    ),
+    dict(
+        name='back_button',
+        display_name='Back button for multiple instructions pages',
+        num_demo_participants=1,
+        app_sequence=['back_button'],
+    ),
+    dict(
         name='balance_treatments_for_dropouts',
         display_name='Assign a player to the treatment with the fewest datapoints',
         num_demo_participants=6,
         app_sequence=['balance_treatments_for_dropouts'],
     ),
     dict(
+        name='chat_with_experimenter',
+        display_name="Chat with experimenter",
+        num_demo_participants=1,
+        app_sequence=['chat_with_experimenter'],
+    ),
+    dict(
         name='complex_form_layout',
+        display_name="Complex form layout",
         num_demo_participants=1,
         app_sequence=['complex_form_layout'],
+    ),
+    dict(
+        name='comprehension_test',
+        display_name="Comprehension test (quiz you must pass to proceed)",
+        num_demo_participants=1,
+        app_sequence=['comprehension_test'],
+    ),
+    dict(
+        name='count_button_clicks',
+        display_name='Count button clicks (hidden input)',
+        num_demo_participants=1,
+        app_sequence=['count_button_clicks'],
+    ),
+    dict(
+        name='detect_mobile',
+        display_name='Block mobile browsers',
+        num_demo_participants=1,
+        app_sequence=['detect_mobile'],
     ),
     dict(
         name='group_by_arrival_time_new_partners',
@@ -34,6 +77,12 @@ SESSION_CONFIGS = [
         app_sequence=['groups_csv'],
     ),
     dict(
+        name='history_table',
+        display_name='History table',
+        num_demo_participants=1,
+        app_sequence=['history_table'],
+    ),
+    dict(
         name='min_time_on_page',
         display_name='Minimum time on a page',
         num_demo_participants=1,
@@ -46,10 +95,22 @@ SESSION_CONFIGS = [
         app_sequence=['multi_select'],
     ),
     dict(
+        name='multi_page_timeout',
+        display_name="Timeout spanning multiple pages",
+        num_demo_participants=1,
+        app_sequence=['multi_page_timeout'],
+    ),
+    dict(
         name='other_player_previous_rounds',
         display_name="Showing other players' decisions from previous rounds",
         num_demo_participants=8,
         app_sequence=['other_player_previous_rounds'],
+    ),
+    dict(
+        name='pass_data_between_apps',
+        display_name='Pass data between apps',
+        num_demo_participants=1,
+        app_sequence=['pass_data_between_apps1', 'pass_data_between_apps2'],
     ),
     dict(
         name='question_with_other_option',
@@ -65,14 +126,61 @@ SESSION_CONFIGS = [
     ),
     dict(
         name='random_num_rounds',
+        display_name="Random number of rounds",
         num_demo_participants=2,
         app_sequence=['random_num_rounds'],
     ),
     dict(
-        name='random_page_order',
-        display_name='Randomize page order',
+        name='randomize_cross_product',
+        display_name="Randomize multiple factors in a balanced way",
+        num_demo_participants=16,
+        app_sequence=['randomize_cross_product'],
+    ),
+    dict(
+        name='ranking_widget',
+        display_name="Widget to rank/reorder items",
+        num_demo_participants=1,
+        app_sequence=['ranking_widget'],
+    ),
+    dict(
+        name='random_question_order',
+        display_name='Randomize order of questions',
         num_demo_participants=4,
-        app_sequence=['random_page_order'],
+        app_sequence=['random_question_order'],
+    ),
+    dict(
+        name='random_question_order_complex',
+        display_name='Randomize order of many questions (from spreadsheet)',
+        num_demo_participants=4,
+        app_sequence=['random_question_order'],
+    ),
+    dict(
+        name='random_task_order',
+        display_name='Randomize order of different tasks',
+        num_demo_participants=4,
+        app_sequence=['random_task_order'],
+    ),
+    dict(
+        name='redirect_to_other_website',
+        display_name="Redirect the user to another website and pass their data",
+        num_demo_participants=1,
+        app_sequence=['redirect_to_other_website'],
+    ),
+    dict(
+        name='waiting_too_long',
+        display_name="group_by_arrival_time timeout (continue with solo task)",
+        num_demo_participants=2,
+        app_sequence=[
+            'waiting_too_long_screening',
+            'waiting_too_long',
+            'waiting_too_long_solo',
+        ],
+    ),
+    dict(
+        name='wait_page_timeout',
+        display_name="Timeout on a WaitPage (exit the experiment)",
+        num_demo_participants=2,
+        app_sequence=['wait_page_timeout'],
     ),
 ]
 
@@ -99,5 +207,17 @@ Recipes for common tasks in oTree
 # don't share this with anybody.
 SECRET_KEY = 'fnv*lfr%ghepfge1rg1a56t0sj+9d*p&1+&g%q@j!ju@zu^v@6'
 
-SESSION_FIELDS = ['completions_by_treatment', 'past_groups']
-PARTICIPANT_FIELDS = ['partner_history', 'num_rounds']
+SESSION_FIELDS = [
+    'completions_by_treatment',
+    'past_groups',
+    'matrices',
+]
+
+PARTICIPANT_FIELDS = [
+    'partner_history',
+    'num_rounds',
+    'language',
+    'wait_page_arrival',
+    'expiry',
+    'task_rounds',
+]

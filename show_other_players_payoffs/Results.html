@@ -4,10 +4,14 @@
 
 {{ block content }}
 
+    <p>Your payoff is {{ player.payoff }}.</p>
+
+    <p>Here are the other players' payoffs:</p>
+
     <table>
         {{ for other in others }}
         <tr>
-            <td>{{ other.id_in_group }}</td>
+            <td>Player {{ other.id_in_group }}</td>
             <td>{{ other.payoff }}</td>
         </tr>
         {{ endfor }}

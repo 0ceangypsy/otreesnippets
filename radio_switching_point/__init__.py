@@ -1,18 +1,4 @@
-from otree.api import (
-    Page,
-    WaitPage,
-    models,
-    widgets,
-    BaseConstants,
-    BaseSubsession,
-    BaseGroup,
-    BasePlayer,
-    Currency as c,
-    currency_range,
-)
-
-from . import models
-
+from otree.api import *
 
 doc = """
 Table where each row has a left/right choice,

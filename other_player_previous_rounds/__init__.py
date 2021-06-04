@@ -1,11 +1,5 @@
 from otree.api import *
 
-c = Currency
-
-doc = """
-Your app description
-"""
-
 
 class Constants(BaseConstants):
     name_in_url = 'other_player_previous_rounds'
@@ -47,7 +41,9 @@ class MyPage(Page):
     def vars_for_template(player: Player):
         partner = get_partner(player)
         my_partner_previous = partner.in_all_rounds()
-        my_previous_partners = [get_partner(me_prev) for me_prev in player.in_all_rounds()]
+        my_previous_partners = [
+            get_partner(me_prev) for me_prev in player.in_all_rounds()
+        ]
 
         return dict(
             partner=partner,

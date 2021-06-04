@@ -3,7 +3,7 @@ from otree.api import *
 c = Currency
 
 doc = """
-Your app description
+Minimum time on a page
 """
 
 

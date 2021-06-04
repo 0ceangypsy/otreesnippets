@@ -1,20 +1,5 @@
 import random
-
-from otree.api import (
-    Page,
-    WaitPage,
-    models,
-    widgets,
-    BaseConstants,
-    BaseSubsession,
-    BaseGroup,
-    BasePlayer,
-    Currency as c,
-    currency_range,
-)
-
-from . import models
-
+from otree.api import *
 
 doc = """
 For each participant, randomize the order of tasks A, B, and C.
@@ -25,7 +10,7 @@ in each round we show a randomly determined subset of pages.
 
 
 class Constants(BaseConstants):
-    name_in_url = 'random_page_order'
+    name_in_url = 'random_task_order'
     players_per_group = None
     tasks = ['A', 'B', 'C']
     num_rounds = len(tasks)
@@ -49,32 +34,40 @@ def creating_session(subsession: Subsession):
         for p in subsession.get_players():
             round_numbers = list(range(1, Constants.num_rounds + 1))
             random.shuffle(round_numbers)
-            p.participant.vars['task_rounds'] = dict(zip(Constants.tasks, round_numbers))
+            p.participant.task_rounds = dict(zip(Constants.tasks, round_numbers))
 
 
 # PAGES
 class TaskA(Page):
     @staticmethod
     def is_displayed(player: Player):
-        return player.round_number == player.participant.vars['task_rounds']['A']
+        participant = player.participant
+
+        return player.round_number == participant.task_rounds['A']
 
 
 class TaskB1(Page):
     @staticmethod
     def is_displayed(player: Player):
-        return player.round_number == player.participant.vars['task_rounds']['B']
+        participant = player.participant
+
+        return player.round_number == participant.task_rounds['B']
 
 
 class TaskB2(Page):
     @staticmethod
     def is_displayed(player: Player):
-        return player.round_number == player.participant.vars['task_rounds']['B']
+        participant = player.participant
+
+        return player.round_number == participant.task_rounds['B']
 
 
 class TaskC(Page):
     @staticmethod
     def is_displayed(player: Player):
-        return player.round_number == player.participant.vars['task_rounds']['C']
+        participant = player.participant
+
+        return player.round_number == participant.task_rounds['C']
 
 
 page_sequence = [

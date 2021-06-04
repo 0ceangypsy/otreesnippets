@@ -1,18 +1,5 @@
-import csv
+from otree.api import *
 from pprint import pprint
-
-from otree.api import (
-    Page,
-    WaitPage,
-    models,
-    widgets,
-    BaseConstants,
-    BaseSubsession,
-    BaseGroup,
-    BasePlayer,
-    Currency as c,
-    currency_range,
-)
 
 
 doc = """
@@ -57,8 +44,10 @@ class Player(BasePlayer):
 
 # FUNCTIONS
 def creating_session(subsession: Subsession):
+    session = subsession.session
+
     if subsession.round_number == 1:
-        num_participants = subsession.session.num_participants
+        num_participants = session.num_participants
         fn = 'groups_csv/groups{}.csv'.format(num_participants)
         with open(fn) as f:
             matrices = []
@@ -67,8 +56,8 @@ def creating_session(subsession: Subsession):
                 group_specs = line.split(',,')
                 matrix = [make_group(spec) for spec in group_specs]
                 matrices.append(matrix)
-            subsession.session.vars['matrices'] = matrices
-    this_round_matrix = subsession.session.vars['matrices'][subsession.round_number - 1]
+            session.matrices = matrices
+    this_round_matrix = session.matrices[subsession.round_number - 1]
     subsession.set_group_matrix(this_round_matrix)
     pprint(this_round_matrix)
 

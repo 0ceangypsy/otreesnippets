@@ -1,6 +1,12 @@
 from otree.api import *
 
 
+doc = """
+Question that lets you select multiple options
+(multi-select, multiple choice / multiple answer)
+"""
+
+
 class Constants(BaseConstants):
     name_in_url = 'select_multiple'
     players_per_group = None
@@ -29,10 +35,6 @@ class Player(BasePlayer):
 class MyPage(Page):
     form_model = 'player'
     form_fields = Constants.languages
-
-    @staticmethod
-    def vars_for_template(player: Player):
-        return dict(form_fields=Constants.languages)
 
 
 page_sequence = [MyPage]

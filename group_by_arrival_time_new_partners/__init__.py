@@ -3,7 +3,7 @@ from otree.api import *
 c = Currency
 
 doc = """
-Your app description
+group by arrival time, but in each round assign to a new partner.
 """
 
 
@@ -22,22 +22,19 @@ def creating_session(subsession: Subsession):
     session.past_groups = []
 
 
-def get_pair_ids(waiting_players):
-    return set(p.participant.id_in_session for p in waiting_players)
-
-
 def group_by_arrival_time_method(subsession: Subsession, waiting_players):
     session = subsession.session
-    import itertools
 
-    for possible_group in itertools.combinations(waiting_players, 2):
-        pair_ids = get_pair_ids(possible_group)
-        if pair_ids not in session.past_groups:
-            session.past_groups.append(pair_ids)
-            print('new pairing:', pair_ids)
-            return possible_group
-        else:
-            print('already played together:', pair_ids)
+    for p1 in waiting_players:
+        for p2 in waiting_players:
+            if p1 != p2:
+                pair_ids = set([p1.id_in_subsession, p2.id_in_subsession])
+                if pair_ids not in session.past_groups:
+                    session.past_groups.append(pair_ids)
+                    print('new pairing:', pair_ids)
+                    return [p1, p2]
+                else:
+                    print('already played together:', pair_ids)
 
 
 class Group(BaseGroup):
