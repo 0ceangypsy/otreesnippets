@@ -1,13 +1,11 @@
 from otree.api import *
 
-
 doc = """
-Minimum time on a page
+Back button for multiple instructions pages
 """
 
-
 class Constants(BaseConstants):
-    name_in_url = 'min_time_on_page'
+    name_in_url = 'back_button'
     players_per_group = None
     num_rounds = 1
 
@@ -25,10 +23,12 @@ class Player(BasePlayer):
 
 
 # PAGES
-class MyPage(Page):
+class Instructions(Page):
     pass
 
 
+class Task(Page):
+    pass
 
 
-page_sequence = [MyPage]
+page_sequence = [Instructions, Task]

@@ -1,13 +1,8 @@
 from otree.api import *
 
 
-doc = """
-Minimum time on a page
-"""
-
-
 class Constants(BaseConstants):
-    name_in_url = 'min_time_on_page'
+    name_in_url = 'pass_data_between_apps2'
     players_per_group = None
     num_rounds = 1
 
@@ -27,8 +22,6 @@ class Player(BasePlayer):
 # PAGES
 class MyPage(Page):
     pass
-
-
 
 
 page_sequence = [MyPage]

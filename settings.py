@@ -119,6 +119,12 @@ SESSION_CONFIGS = [
         app_sequence=['question_with_other_option'],
     ),
     dict(
+        name='questions_from_csv',
+        display_name='Quiz questions loaded from CSV spreadsheet + custom_export',
+        num_demo_participants=2,
+        app_sequence=['questions_from_csv'],
+    ),
+    dict(
         name='radio_switching_point',
         display_name='Radio button table with single switching point (strategy method)',
         num_demo_participants=4,
@@ -149,12 +155,6 @@ SESSION_CONFIGS = [
         app_sequence=['random_question_order'],
     ),
     dict(
-        name='random_question_order_complex',
-        display_name='Randomize order of many questions (from spreadsheet)',
-        num_demo_participants=4,
-        app_sequence=['random_question_order'],
-    ),
-    dict(
         name='random_task_order',
         display_name='Randomize order of different tasks',
         num_demo_participants=4,
@@ -165,6 +165,12 @@ SESSION_CONFIGS = [
         display_name="Redirect the user to another website and pass their data",
         num_demo_participants=1,
         app_sequence=['redirect_to_other_website'],
+    ),
+    dict(
+        name='slider_live_label',
+        display_name="Slider with live updating label",
+        num_demo_participants=1,
+        app_sequence=['slider_live_label'],
     ),
     dict(
         name='waiting_too_long',
@@ -200,9 +206,14 @@ ADMIN_USERNAME = 'admin'
 ADMIN_PASSWORD = environ.get('OTREE_ADMIN_PASSWORD')
 
 
+DEMO_PAGE_TITLE = """
+Recipes for common tasks in oTree
+"""
+
 DEMO_PAGE_INTRO_HTML = """
 Recipes for common tasks in oTree
 """
+
 
 # don't share this with anybody.
 SECRET_KEY = 'fnv*lfr%ghepfge1rg1a56t0sj+9d*p&1+&g%q@j!ju@zu^v@6'

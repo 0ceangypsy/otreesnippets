@@ -1,6 +1,5 @@
 from otree.api import *
 
-c = Currency
 
 doc = """
 group by arrival time, but in each round assign to a new partner.

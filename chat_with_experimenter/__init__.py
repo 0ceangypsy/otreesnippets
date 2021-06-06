@@ -2,14 +2,15 @@ from otree.api import *
 
 
 doc = """
-Minimum time on a page
+Chat with experimenter, using Papercups
 """
 
 
 class Constants(BaseConstants):
-    name_in_url = 'min_time_on_page'
+    name_in_url = 'chat_with_experimenter'
     players_per_group = None
     num_rounds = 1
+    papercups_template = __name__ + '/papercups.html'
 
 
 class Subsession(BaseSubsession):
@@ -27,8 +28,6 @@ class Player(BasePlayer):
 # PAGES
 class MyPage(Page):
     pass
-
-
 
 
 page_sequence = [MyPage]

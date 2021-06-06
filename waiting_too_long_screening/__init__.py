@@ -1,13 +1,8 @@
 from otree.api import *
 
 
-doc = """
-Minimum time on a page
-"""
-
-
 class Constants(BaseConstants):
-    name_in_url = 'min_time_on_page'
+    name_in_url = 'waiting_too_long_screening'
     players_per_group = None
     num_rounds = 1
 
@@ -24,11 +19,13 @@ class Player(BasePlayer):
     pass
 
 
-# PAGES
 class MyPage(Page):
-    pass
+    @staticmethod
+    def before_next_page(player: Player, timeout_happened):
+        participant = player.participant
 
-
+        import time
+        participant.wait_page_arrival = time.time()
 
 
 page_sequence = [MyPage]
