@@ -173,6 +173,18 @@ SESSION_CONFIGS = [
         app_sequence=['slider_live_label'],
     ),
     dict(
+        name='wait_page_timeout',
+        display_name="Timeout on a WaitPage (exit the experiment)",
+        num_demo_participants=2,
+        app_sequence=['wait_page_timeout'],
+    ),
+    dict(
+        name='wait_for_specific_people',
+        display_name="Wait only for specific people",
+        num_demo_participants=8,
+        app_sequence=['wait_for_specific_people'],
+    ),
+    dict(
         name='waiting_too_long',
         display_name="group_by_arrival_time timeout (continue with solo task)",
         num_demo_participants=2,
@@ -181,12 +193,6 @@ SESSION_CONFIGS = [
             'waiting_too_long',
             'waiting_too_long_solo',
         ],
-    ),
-    dict(
-        name='wait_page_timeout',
-        display_name="Timeout on a WaitPage (exit the experiment)",
-        num_demo_participants=2,
-        app_sequence=['wait_page_timeout'],
     ),
 ]
 
@@ -222,6 +228,8 @@ SESSION_FIELDS = [
     'completions_by_treatment',
     'past_groups',
     'matrices',
+    'wait_for_ids',
+    'arrived_ids',
 ]
 
 PARTICIPANT_FIELDS = [
