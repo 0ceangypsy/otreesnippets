@@ -5,11 +5,11 @@
 <p id="question"></p>
 
 <div>
-    <button type="button" onclick="sendClick(this)" value="A" id="optionA">
+    <button type="button" onclick="recordResponse(this)" value="A" id="optionA">
     </button>
-    <button type="button" onclick="sendClick(this)" value="B" id="optionB">
+    <button type="button" onclick="recordResponse(this)" value="B" id="optionB">
     </button>
-    <button type="button" onclick="sendClick(this)" value="C" id="optionC">
+    <button type="button" onclick="recordResponse(this)" value="C" id="optionC">
     </button>
 </div>
 
@@ -28,7 +28,7 @@
         }
     }
 
-    function sendClick(btn) {
+    function recordResponse(btn) {
         let trialId = trials[trialIndex].id;
         responses[trialId] = btn.value;
         trialIndex++;

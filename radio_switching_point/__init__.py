@@ -22,13 +22,8 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    left_side_amount = models.CurrencyField(initial=10)
-    switching_point = models.CurrencyField()
-
-
-# FUNCTIONS
-def right_side_amounts(player: Player):
-    return currency_range(10, 20, 1)
+    left_side_amount = models.IntegerField(initial=10)
+    switching_point = models.IntegerField()
 
 
 # PAGES
@@ -38,7 +33,7 @@ class Decide(Page):
 
     @staticmethod
     def vars_for_template(player):
-        return dict(right_side_amounts=right_side_amounts(player))
+        return dict(right_side_amounts=range(10, 21, 1))
 
 
 class Results(Page):

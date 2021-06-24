@@ -2,7 +2,7 @@ from otree.api import *
 
 
 doc = """
-Your app description
+Wait only for specific people
 """
 
 
@@ -67,4 +67,4 @@ class Results(Page):
     pass
 
 
-page_sequence = [WaitForSelected, Results]
+page_sequence = [Intro, WaitForSelected, Results]

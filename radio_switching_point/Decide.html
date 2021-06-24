@@ -22,11 +22,11 @@
                 <td align="middle">
                     <input type="radio"
                            value="left"
-                           name="{{ amount|json }}"
+                           name="{{ amount }}"
                            required>&nbsp;&nbsp;
                     <input type="radio"
-                           name="{{ amount|json }}"
-                           value="right" data-amount="{{ amount|json }}"
+                           name="{{ amount }}"
+                           value="right" data-amount="{{ amount }}"
                            required>
                 </td>
                 <td align="left">
@@ -40,7 +40,7 @@
     <input type="hidden" name="switching_point" id="id_switching_point"
            value="9999">
 
-    {{ next_button }}
+    <button type="button" class="btn btn-primary">Next</button>
 
 
 {{ endblock }}
@@ -53,7 +53,6 @@
                 function () {
                     var clickedRadio = this;
                     var afterClickedRadio = false;
-
 
                     var radios = document.querySelectorAll('input[type=radio]');
                     for (i = 0; i < radios.length; ++i) {
@@ -72,20 +71,22 @@
                 }
             );
 
-            $('.otree-btn-next').click(function () {
+            function submit() {
                 var radios = document.querySelectorAll('input[type=radio]');
-
+                let switchingPoint = document.getElementById('id_switching_point');
 
                 for (i = 0; i < radios.length; ++i) {
                     var radio = radios[i];
                     if (radio.value === 'right' && radio.checked) {
-                        $('#id_switching_point').val(radio.dataset.amount);
+                        switchingPoint.value = radio.dataset.amount;
                         break;
                     } else {
-                        $('#id_switching_point').val(9999);
+                        switchingPoint.value = 9999;
                     }
                 }
-            });
+
+                document.getElementById('form').submit();
+            }
         });
     </script>
 {{ endblock }}

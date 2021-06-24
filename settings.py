@@ -11,16 +11,22 @@ SESSION_CONFIG_DEFAULTS = dict(
 
 SESSION_CONFIGS = [
     dict(
-        name='appcopy',
-        display_name='Sandwich design (App A -> App B -> App A)',
-        num_demo_participants=1,
-        app_sequence=['appcopy1', 'multi_select', 'appcopy2'],
-    ),
-    dict(
         name='are_you_sure',
         display_name="""'Are you sure?' popup based on the user's input""",
         num_demo_participants=1,
         app_sequence=['are_you_sure'],
+    ),
+    dict(
+        name='balance_treatments_for_dropouts',
+        display_name='Assign a player to the treatment with the fewest datapoints',
+        num_demo_participants=6,
+        app_sequence=['balance_treatments_for_dropouts'],
+    ),
+    dict(
+        name='groups_csv',
+        display_name='Assign players to groups defined in a CSV file',
+        num_demo_participants=6,
+        app_sequence=['groups_csv'],
     ),
     dict(
         name='back_button',
@@ -29,10 +35,10 @@ SESSION_CONFIGS = [
         app_sequence=['back_button'],
     ),
     dict(
-        name='balance_treatments_for_dropouts',
-        display_name='Assign a player to the treatment with the fewest datapoints',
-        num_demo_participants=6,
-        app_sequence=['balance_treatments_for_dropouts'],
+        name='detect_mobile',
+        display_name='Block mobile browsers',
+        num_demo_participants=1,
+        app_sequence=['detect_mobile'],
     ),
     dict(
         name='chat_with_experimenter',
@@ -59,22 +65,30 @@ SESSION_CONFIGS = [
         app_sequence=['count_button_clicks'],
     ),
     dict(
-        name='detect_mobile',
-        display_name='Block mobile browsers',
-        num_demo_participants=1,
-        app_sequence=['detect_mobile'],
-    ),
-    dict(
-        name='group_by_arrival_time_new_partners',
+        name='gbat_new_partners',
         display_name="group by arrival time, but in each round assign to a new partner.",
         num_demo_participants=16,
-        app_sequence=['group_by_arrival_time_new_partners'],
+        app_sequence=['gbat_new_partners'],
     ),
     dict(
-        name='groups_csv',
-        display_name='Assign players to groups defined in a CSV file',
+        name='gbat_keep_same_groups',
+        display_name="group_by_arrival_time: Preserve same groups as a previous app that used group_by_arrival_time.",
         num_demo_participants=6,
-        app_sequence=['groups_csv'],
+        app_sequence=[
+            'gbat_keep_same_groups_part0',
+            'gbat_keep_same_groups_part1',
+            'gbat_keep_same_groups_part2',
+        ],
+    ),
+    dict(
+        name='waiting_too_long',
+        display_name="group_by_arrival_time timeout (continue with solo task)",
+        num_demo_participants=2,
+        app_sequence=[
+            'waiting_too_long_screening',
+            'waiting_too_long',
+            'waiting_too_long_solo',
+        ],
     ),
     dict(
         name='history_table',
@@ -83,28 +97,16 @@ SESSION_CONFIGS = [
         app_sequence=['history_table'],
     ),
     dict(
+        name='question_with_other_option',
+        display_name="Menu with an 'other' option that lets you type in a value manually",
+        num_demo_participants=4,
+        app_sequence=['question_with_other_option'],
+    ),
+    dict(
         name='min_time_on_page',
         display_name='Minimum time on a page',
         num_demo_participants=1,
         app_sequence=['min_time_on_page'],
-    ),
-    dict(
-        name='multi_select',
-        display_name="Question that lets you select multiple options",
-        num_demo_participants=1,
-        app_sequence=['multi_select'],
-    ),
-    dict(
-        name='multi_page_timeout',
-        display_name="Timeout spanning multiple pages",
-        num_demo_participants=1,
-        app_sequence=['multi_page_timeout'],
-    ),
-    dict(
-        name='other_player_previous_rounds',
-        display_name="Showing other players' decisions from previous rounds",
-        num_demo_participants=8,
-        app_sequence=['other_player_previous_rounds'],
     ),
     dict(
         name='pass_data_between_apps',
@@ -113,10 +115,10 @@ SESSION_CONFIGS = [
         app_sequence=['pass_data_between_apps1', 'pass_data_between_apps2'],
     ),
     dict(
-        name='question_with_other_option',
-        display_name="Menu with an 'other' option that lets you type in a value manually",
-        num_demo_participants=4,
-        app_sequence=['question_with_other_option'],
+        name='multi_select',
+        display_name="Question that lets you select multiple options",
+        num_demo_participants=1,
+        app_sequence=['multi_select'],
     ),
     dict(
         name='questions_from_csv',
@@ -143,12 +145,6 @@ SESSION_CONFIGS = [
         app_sequence=['randomize_cross_product'],
     ),
     dict(
-        name='ranking_widget',
-        display_name="Widget to rank/reorder items",
-        num_demo_participants=1,
-        app_sequence=['ranking_widget'],
-    ),
-    dict(
         name='random_question_order',
         display_name='Randomize order of questions',
         num_demo_participants=4,
@@ -167,6 +163,18 @@ SESSION_CONFIGS = [
         app_sequence=['redirect_to_other_website'],
     ),
     dict(
+        name='appcopy',
+        display_name='Sandwich design (App A -> App B -> App A)',
+        num_demo_participants=1,
+        app_sequence=['appcopy1', 'multi_select', 'appcopy2'],
+    ),
+    dict(
+        name='other_player_previous_rounds',
+        display_name="Showing other players' decisions from previous rounds",
+        num_demo_participants=8,
+        app_sequence=['other_player_previous_rounds'],
+    ),
+    dict(
         name='slider_live_label',
         display_name="Slider with live updating label",
         num_demo_participants=1,
@@ -179,20 +187,28 @@ SESSION_CONFIGS = [
         app_sequence=['wait_page_timeout'],
     ),
     dict(
+        name='multi_page_timeout',
+        display_name="Timeout spanning multiple pages",
+        num_demo_participants=1,
+        app_sequence=['multi_page_timeout'],
+    ),
+    dict(
+        name='multi_language',
+        display_name="Translate an app to multiple languages (e.g. English and German)",
+        num_demo_participants=1,
+        app_sequence=['multi_language'],
+    ),
+    dict(
         name='wait_for_specific_people',
         display_name="Wait only for specific people",
         num_demo_participants=8,
         app_sequence=['wait_for_specific_people'],
     ),
     dict(
-        name='waiting_too_long',
-        display_name="group_by_arrival_time timeout (continue with solo task)",
-        num_demo_participants=2,
-        app_sequence=[
-            'waiting_too_long_screening',
-            'waiting_too_long',
-            'waiting_too_long_solo',
-        ],
+        name='ranking_widget',
+        display_name="Widget to rank/reorder items",
+        num_demo_participants=1,
+        app_sequence=['ranking_widget'],
     ),
 ]
 
@@ -239,4 +255,5 @@ PARTICIPANT_FIELDS = [
     'wait_page_arrival',
     'expiry',
     'task_rounds',
+    'past_group_id',
 ]
