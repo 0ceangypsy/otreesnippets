@@ -24,16 +24,16 @@ def creating_session(subsession: Subsession):
 def group_by_arrival_time_method(subsession: Subsession, waiting_players):
     session = subsession.session
 
-    for p1 in waiting_players:
-        for p2 in waiting_players:
-            if p1 != p2:
-                pair_ids = set([p1.id_in_subsession, p2.id_in_subsession])
-                if pair_ids not in session.past_groups:
-                    session.past_groups.append(pair_ids)
-                    print('new pairing:', pair_ids)
-                    return [p1, p2]
-                else:
-                    print('already played together:', pair_ids)
+    import itertools
+
+    for possible_group in itertools.combinations(waiting_players, 2):
+        # use a set, so that we can easily compare even if order is different
+        # e.g. {1, 2} == {2, 1}
+        pair_ids = set(p.id_in_subsession for p in possible_group)
+        if pair_ids not in session.past_groups:
+            # mark this group as used, so we don't repeat it in the next round.
+            session.past_groups.append(pair_ids)
+            return possible_group
 
 
 class Group(BaseGroup):

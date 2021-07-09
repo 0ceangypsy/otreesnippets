@@ -2,7 +2,7 @@ from otree.api import *
 
 
 class Constants(BaseConstants):
-    name_in_url = 'waiting_too_long_screening'
+    name_in_url = 'waiting_too_long_part0'
     players_per_group = None
     num_rounds = 1
 

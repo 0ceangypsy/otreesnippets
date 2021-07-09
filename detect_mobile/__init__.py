@@ -2,6 +2,7 @@ from otree.api import *
 
 doc = """Detect and block mobile browsers"""
 
+
 class Constants(BaseConstants):
     name_in_url = 'detect_mobile'
     players_per_group = None
@@ -25,14 +26,13 @@ class MobileCheck(Page):
     form_model = 'player'
     form_fields = ['is_mobile']
 
-
-class SorryNoMobile(Page):
-    @staticmethod
-    def is_displayed(player: Player):
-        return player.is_mobile
+    def error_message(player: Player, values):
+        if values['is_mobile']:
+            return "Sorry, this experiment does not allow mobile browsers."
 
 
 class Task(Page):
     pass
 
-page_sequence = [MobileCheck, SorryNoMobile, Task]
+
+page_sequence = [MobileCheck, Task]
