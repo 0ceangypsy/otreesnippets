@@ -65,6 +65,12 @@ SESSION_CONFIGS = [
         app_sequence=['count_button_clicks'],
     ),
     dict(
+        name='dropout_detection',
+        display_name='Dropout detection (if user does not submit page in time)',
+        num_demo_participants=1,
+        app_sequence=['dropout_detection'],
+    ),
+    dict(
         name='gbat_new_partners',
         display_name="group by arrival time, but in each round assign to a new partner.",
         num_demo_participants=16,
