@@ -97,6 +97,12 @@ SESSION_CONFIGS = [
         app_sequence=['history_table'],
     ),
     dict(
+        name='longitudinal',
+        display_name='Longitudinal study (2-part study taking place across days/weeks)',
+        num_demo_participants=1,
+        app_sequence=['longitudinal'],
+    ),
+    dict(
         name='question_with_other_option',
         display_name="Menu with an 'other' option that lets you type in a value manually",
         num_demo_participants=4,
@@ -113,6 +119,12 @@ SESSION_CONFIGS = [
         display_name='Pass data between apps',
         num_demo_participants=1,
         app_sequence=['pass_data_between_apps_part1', 'pass_data_between_apps_part2'],
+    ),
+    dict(
+        name='pay_random_round',
+        display_name="Pay a randomly selected round",
+        num_demo_participants=1,
+        app_sequence=['pay_random_round'],
     ),
     dict(
         name='multi_select',
@@ -256,4 +268,5 @@ PARTICIPANT_FIELDS = [
     'expiry',
     'task_rounds',
     'past_group_id',
+    'selected_round',
 ]
