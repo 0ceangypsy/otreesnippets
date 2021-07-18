@@ -1,13 +1,13 @@
-{{ for f in fields }}
-    {{ formfield f.name }}
+{{ for d in fields }}
+    {{ formfield d.name }}
     {{ if show_solutions }}
-        {{ if f.is_correct }}
+        {{ if d.is_correct }}
         <p class="solution-correct">
             Correct.
         </p>
         {{ else }}
         <p class="solution-incorrect">
-            {{ f.feedback }}
+            {{ d.explanation }}
         </p>
         {{ endif }}
     {{ endif }}

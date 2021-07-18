@@ -2,12 +2,12 @@ from otree.api import *
 
 
 doc = """
-Quiz with feedback. Re-display the previous page's form as read-only, with answers/explanation.
+Quiz with explanation. Re-display the previous page's form as read-only, with answers/explanation.
 """
 
 
 class Constants(BaseConstants):
-    name_in_url = 'quiz_with_feedback'
+    name_in_url = 'quiz_with_explanation'
     players_per_group = None
     num_rounds = 1
     form_template = __name__ + '/form.html'
@@ -18,12 +18,12 @@ def get_quiz_data():
         dict(
             name='a',
             solution=True,
-            feedback="2 is prime. It has no factorization other than 1 and itself.",
+            explanation="2 is prime. It has no factorization other than 1 and itself.",
         ),
         dict(
             name='b',
             solution=False,
-            feedback="39 is not prime because it can be factored to 3 * 13.",
+            explanation="39 is not prime because it can be factored to 3 * 13.",
         ),
     ]
 

@@ -59,6 +59,12 @@ SESSION_CONFIGS = [
         app_sequence=['comprehension_test'],
     ),
     dict(
+        name='constant_sum',
+        display_name="Constant-sum input (3 numbers that add up to 100)",
+        num_demo_participants=1,
+        app_sequence=['constant_sum'],
+    ),
+    dict(
         name='count_button_clicks',
         display_name='Count button clicks (hidden input)',
         num_demo_participants=1,
@@ -203,6 +209,12 @@ SESSION_CONFIGS = [
         display_name="Slider with live updating label",
         num_demo_participants=1,
         app_sequence=['slider_live_label'],
+    ),
+    dict(
+        name='graphic_slider',
+        display_name="Slider with live updating graphic",
+        num_demo_participants=1,
+        app_sequence=['graphic_slider'],
     ),
     dict(
         name='wait_page_timeout',
