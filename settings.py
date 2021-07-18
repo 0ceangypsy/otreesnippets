@@ -145,6 +145,12 @@ SESSION_CONFIGS = [
         app_sequence=['questions_from_csv'],
     ),
     dict(
+        name='quiz_with_feedback',
+        display_name="Quiz with feedback. Re-display the previous page's form as read-only, with answers/explanation.",
+        num_demo_participants=1,
+        app_sequence=['quiz_with_feedback'],
+    ),
+    dict(
         name='radio_switching_point',
         display_name='Radio button table with single switching point (strategy method)',
         num_demo_participants=4,
