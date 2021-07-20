@@ -9,7 +9,7 @@
 
 
     <p>Drag the slider to indicate how you feel right now.</p>
-    <input type="range" name="feeling" value="0" min="0" max="3" oninput="changeGraphic(this)">
+    <input type="range" name="feeling" value="1" min="0" max="3" oninput="changeGraphic(this)">
     {{ for img_path in img_paths }}
         <img src="{{ static img_path }}" class="slider-graphic">
     {{ endfor }}

@@ -2,7 +2,8 @@ from otree.api import *
 
 
 doc = """
-"Widget to rank/reorder items"
+"Widget to rank/reorder items". See http://sortablejs.github.io/Sortable/
+for more examples.
 """
 
 

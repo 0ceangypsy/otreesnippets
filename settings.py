@@ -71,6 +71,12 @@ SESSION_CONFIGS = [
         app_sequence=['count_button_clicks'],
     ),
     dict(
+        name='custom_chat',
+        display_name="Custom chat (not using oTree's built-in chat)",
+        num_demo_participants=3,
+        app_sequence=['custom_chat'],
+    ),
+    dict(
         name='dropout_detection',
         display_name='Dropout detection (if user does not submit page in time)',
         num_demo_participants=1,
@@ -187,6 +193,12 @@ SESSION_CONFIGS = [
         app_sequence=['random_task_order'],
     ),
     dict(
+        name='ranking_widget',
+        display_name="Rank/reorder widget",
+        num_demo_participants=1,
+        app_sequence=['ranking_widget'],
+    ),
+    dict(
         name='redirect_to_other_website',
         display_name="Redirect the user to another website and pass their data",
         num_demo_participants=1,
@@ -211,10 +223,10 @@ SESSION_CONFIGS = [
         app_sequence=['slider_live_label'],
     ),
     dict(
-        name='graphic_slider',
-        display_name="Slider with live updating graphic",
+        name='slider_graphic',
+        display_name="Slider that changes an image (e.g. happy to sad scale)",
         num_demo_participants=1,
-        app_sequence=['graphic_slider'],
+        app_sequence=['slider_graphic'],
     ),
     dict(
         name='wait_page_timeout',
@@ -239,12 +251,6 @@ SESSION_CONFIGS = [
         display_name="Wait only for specific people",
         num_demo_participants=8,
         app_sequence=['wait_for_specific_people'],
-    ),
-    dict(
-        name='ranking_widget',
-        display_name="Widget to rank/reorder items",
-        num_demo_participants=1,
-        app_sequence=['ranking_widget'],
     ),
 ]
 
