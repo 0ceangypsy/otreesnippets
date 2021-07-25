@@ -65,6 +65,13 @@ SESSION_CONFIGS = [
         app_sequence=['constant_sum'],
     ),
     dict(
+        name='configurable_players_per_group',
+        display_name="Configurable players_per_group (doesn't work in demo mode)",
+        num_demo_participants=12,
+        app_sequence=['configurable_players_per_group'],
+        players_per_group=3,
+    ),
+    dict(
         name='count_button_clicks',
         display_name='Count button clicks (hidden input)',
         num_demo_participants=1,
