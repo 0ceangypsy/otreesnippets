@@ -15,7 +15,7 @@ For example, you can easily compare the user's answer to their answer in the pre
 class Constants(BaseConstants):
     name_in_url = 'longitudinal'
     players_per_group = None
-    num_rounds = 2
+    num_rounds = 1
 
 
 class Subsession(BaseSubsession):
@@ -46,19 +46,22 @@ class Part1(Page):
         player.part2_start_time_readable = start.strftime('%A, %B %d')
 
 
+def still_waiting_for_part_2(player: Player):
+    import time
+
+    return time.time() < player.part2_start_time
+
+
 class Bridge(Page):
     @staticmethod
     def is_displayed(player: Player):
-        import time
-
-        return time.time() < player.part2_start_time
+        return still_waiting_for_part_2(player)
 
     @staticmethod
-    def error_message(player: Player, values):
-        import time
-
-        if time.time() < player.part2_start_time:
-            return "Part 2 has not begun yet"
+    def before_next_page(player: Player, timeout_happened):
+        raise Exception(
+            "Player somehow tried to proceed past a page with no next button"
+        )
 
 
 class Part2(Page):

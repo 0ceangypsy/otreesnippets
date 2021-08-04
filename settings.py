@@ -152,6 +152,12 @@ SESSION_CONFIGS = [
         app_sequence=['pay_random_round'],
     ),
     dict(
+        name='progress_bar',
+        display_name="Progress bar",
+        num_demo_participants=1,
+        app_sequence=['progress_bar'],
+    ),
+    dict(
         name='multi_select',
         display_name="Question that lets you select multiple options",
         num_demo_participants=1,
@@ -254,6 +260,12 @@ SESSION_CONFIGS = [
         app_sequence=['multi_language'],
     ),
     dict(
+        name='treatments_from_spreadsheet',
+        display_name="Treatments defined in a spreadsheet",
+        num_demo_participants=12,
+        app_sequence=['treatments_from_spreadsheet'],
+    ),
+    dict(
         name='wait_for_specific_people',
         display_name="Wait only for specific people",
         num_demo_participants=8,
@@ -298,12 +310,13 @@ SESSION_FIELDS = [
 ]
 
 PARTICIPANT_FIELDS = [
-    'partner_history',
-    'num_rounds',
-    'language',
-    'wait_page_arrival',
     'expiry',
-    'task_rounds',
+    'language',
+    'num_rounds',
+    'partner_history',
     'past_group_id',
+    'progress',
     'selected_round',
+    'task_rounds',
+    'wait_page_arrival',
 ]

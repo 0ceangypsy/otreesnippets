@@ -16,7 +16,7 @@ def read_csv():
     import csv
     import random
 
-    f = open('questions_from_csv/stimuli.csv', encoding='utf8')
+    f = open('questions_from_csv/stimuli.csv', encoding='utf-8-sig')
     rows = list(csv.DictReader(f))
 
     random.shuffle(rows)

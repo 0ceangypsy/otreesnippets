@@ -57,10 +57,12 @@ class WaitForSelected(Page):
         return {0: dict(finished=True)}
 
     @staticmethod
-    def error_message(player: Player, values):
+    def before_next_page(player: Player, timeout_happened):
         session = player.session
         if session.arrived_ids != session.wait_for_ids:
-            return "You must wait until all select participants have arrived"
+            raise Exception(
+                "Page somehow proceeded before all players are ready"
+            )
 
 
 class Results(Page):
