@@ -2,7 +2,7 @@ from otree.api import *
 
 
 class Constants(BaseConstants):
-    name_in_url = 'configurable_num_rounds'
+    name_in_url = 'random_num_rounds'
     players_per_group = None
     num_rounds = 20
 

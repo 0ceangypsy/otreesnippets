@@ -35,6 +35,12 @@ SESSION_CONFIGS = [
         app_sequence=['back_button'],
     ),
     dict(
+        name='bmi_calculator',
+        display_name='Basic 1-player game (BMI calculator)',
+        num_demo_participants=1,
+        app_sequence=['bmi_calculator'],
+    ),
+    dict(
         name='detect_mobile',
         display_name='Block mobile browsers',
         num_demo_participants=1,
@@ -170,10 +176,10 @@ SESSION_CONFIGS = [
         app_sequence=['questions_from_csv'],
     ),
     dict(
-        name='quiz_with_feedback',
-        display_name="Quiz with feedback. Re-display the previous page's form as read-only, with answers/explanation.",
+        name='quiz_with_explanation',
+        display_name="Quiz + post-quiz explanation. Re-display the previous page's form as read-only, with answers/explanation.",
         num_demo_participants=1,
-        app_sequence=['quiz_with_feedback'],
+        app_sequence=['quiz_with_explanation'],
     ),
     dict(
         name='radio_switching_point',
@@ -186,6 +192,15 @@ SESSION_CONFIGS = [
         display_name="Random number of rounds",
         num_demo_participants=2,
         app_sequence=['random_num_rounds'],
+    ),
+    dict(
+        name='random_num_rounds_multiplayer',
+        display_name="Random number of rounds for multiplayer (random stopping rule)",
+        num_demo_participants=2,
+        app_sequence=[
+            'random_num_rounds_multiplayer',
+            'random_num_rounds_multiplayer_end',
+        ],
     ),
     dict(
         name='randomize_cross_product',
@@ -311,6 +326,7 @@ SESSION_FIELDS = [
 
 PARTICIPANT_FIELDS = [
     'expiry',
+    'finished_rounds',
     'language',
     'num_rounds',
     'partner_history',

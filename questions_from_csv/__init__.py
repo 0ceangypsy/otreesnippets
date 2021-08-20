@@ -2,7 +2,11 @@ from otree.api import *
 
 doc = """
 Read quiz questions from a CSV.
-(Also randomizes order) 
+(Also randomizes order)
+It would be much simpler to implement this using rounds (1 question per round),
+as is done in the image rating app; however, this approach with live pages
+has faster gameplay since it's all done in 1 page, and leads to a more compact
+data export. Consider using this version if you have many questions or if speed is a high priority. 
 """
 
 
@@ -16,7 +20,7 @@ def read_csv():
     import csv
     import random
 
-    f = open('questions_from_csv/stimuli.csv', encoding='utf-8-sig')
+    f = open(__name__ + '/stimuli.csv', encoding='utf-8-sig')
     rows = list(csv.DictReader(f))
 
     random.shuffle(rows)
