@@ -128,6 +128,12 @@ SESSION_CONFIGS = [
         app_sequence=['history_table'],
     ),
     dict(
+        name='jspsych',
+        display_name='jsPsych integration',
+        num_demo_participants=1,
+        app_sequence=['jspsych'],
+    ),
+    dict(
         name='longitudinal',
         display_name='Longitudinal study (2-part study taking place across days/weeks)',
         num_demo_participants=1,
