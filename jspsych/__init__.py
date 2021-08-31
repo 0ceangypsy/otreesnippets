@@ -2,12 +2,13 @@ from otree.api import *
 
 
 doc = """
-An example showing how to integrate with jsPsych to do reaction-time psych experiments. 
+It's easy to integrate with jsPsych, which means you can add all types of 
+psychology tests to your experiments: https://www.jspsych.org/
 """
 
 
 class Constants(BaseConstants):
-    name_in_url = 'jspsych_integration'
+    name_in_url = 'jspsych'
     players_per_group = None
     num_rounds = 1
 
