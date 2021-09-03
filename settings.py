@@ -128,12 +128,6 @@ SESSION_CONFIGS = [
         app_sequence=['history_table'],
     ),
     dict(
-        name='jspsych',
-        display_name='jsPsych integration',
-        num_demo_participants=1,
-        app_sequence=['jspsych'],
-    ),
-    dict(
         name='longitudinal',
         display_name='Longitudinal study (2-part study taking place across days/weeks)',
         num_demo_participants=1,
@@ -192,6 +186,12 @@ SESSION_CONFIGS = [
         display_name='Radio button table with single switching point (strategy method)',
         num_demo_participants=4,
         app_sequence=['radio_switching_point'],
+    ),
+    dict(
+        name='radio',
+        display_name="Radio buttons in various layouts, looping over radio choices",
+        app_sequence=['radio'],
+        num_demo_participants=1,
     ),
     dict(
         name='random_num_rounds',

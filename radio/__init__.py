@@ -2,13 +2,12 @@ from otree.api import *
 
 
 doc = """
-It's easy to integrate with jsPsych, which means you can add all types of 
-psychology tests to your experiments: https://www.jspsych.org/
+Radio buttons in various layouts, looping over radio choices
 """
 
 
 class Constants(BaseConstants):
-    name_in_url = 'jspsych'
+    name_in_url = 'radio'
     players_per_group = None
     num_rounds = 1
 
@@ -22,15 +21,18 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    avg_reaction = models.FloatField()
-    jspsych_raw = models.LongStringField()
+    f1 = models.IntegerField(
+        widget=widgets.RadioSelect, choices=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    )
+    f2 = models.IntegerField(
+        widget=widgets.RadioSelect, choices=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    )
 
 
-# FUNCTIONS
 # PAGES
 class MyPage(Page):
     form_model = 'player'
-    form_fields = ['avg_reaction', 'jspsych_raw']
+    form_fields = ['f1', 'f2']
 
 
 class Results(Page):
