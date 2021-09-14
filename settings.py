@@ -11,6 +11,12 @@ SESSION_CONFIG_DEFAULTS = dict(
 
 SESSION_CONFIGS = [
     dict(
+        name='sequential',
+        display_name="""Sequential game""",
+        num_demo_participants=3,
+        app_sequence=['sequential'],
+    ),
+    dict(
         name='are_you_sure',
         display_name="""'Are you sure?' popup based on the user's input""",
         num_demo_participants=1,
@@ -82,6 +88,12 @@ SESSION_CONFIGS = [
         display_name='Count button clicks (hidden input)',
         num_demo_participants=1,
         app_sequence=['count_button_clicks'],
+    ),
+    dict(
+        name='css',
+        num_demo_participants=1,
+        app_sequence=['css'],
+        display_name="CSS to style timer and chat box",
     ),
     dict(
         name='custom_chat',
@@ -156,6 +168,12 @@ SESSION_CONFIGS = [
         display_name="Pay a randomly selected round",
         num_demo_participants=1,
         app_sequence=['pay_random_round'],
+    ),
+    dict(
+        name='practice_rounds',
+        display_name="Practice rounds",
+        app_sequence=['practice_rounds'],
+        num_demo_participants=1,
     ),
     dict(
         name='progress_bar',
