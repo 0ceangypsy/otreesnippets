@@ -240,15 +240,15 @@ SESSION_CONFIGS = [
     ),
     dict(
         name='rank_widget',
-        display_name="Rank/reorder widget",
+        display_name="Rank/reorder form widget",
         num_demo_participants=1,
         app_sequence=['rank_widget'],
     ),
     dict(
-        name='rank_widget_topN',
-        display_name="Rank/reorder widget (choose top N)",
+        name='rank_topN',
+        display_name="Ranking your top N choices from a list of options.",
         num_demo_participants=1,
-        app_sequence=['rank_widget_topN'],
+        app_sequence=['rank_topN'],
     ),
     dict(
         name='redirect_to_other_website',
