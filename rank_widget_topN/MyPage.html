@@ -1,0 +1,61 @@
+{{ block title }}
+Rank your favorite drinks
+{{ endblock }}
+{{ block content }}
+
+<style>
+    .list-group {
+        cursor: move;
+    }
+
+</style>
+
+<p>Drag & drop to select your top {{ Constants.num_choices }} favorite drinks from the below list.</p>
+<p><b>Selected items</b></p>
+<ul id="items_selected" class="list-group list-group-numbered">
+</ul>
+<input type="hidden" id="ranking" name="ranking">
+{{ formfield_errors 'ranking' }}
+
+<p><b>Unselected items</b></p>
+<ul id="items_choices" class="list-group">
+    {{ for choice in Constants.choices }}
+    <li data-id="{{ choice }}" class="list-group-item">{{ choice }}</li>
+    {{ endfor }}
+</ul>
+
+
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+<script>
+    let items_choices = document.getElementById('items_choices');
+    let items_selected = document.getElementById('items_selected');
+    let rankingInput = document.getElementById('ranking');
+    let chosenArray = [];
+
+    function onChange(evt) {
+        chosenArray = choicesSortable.toArray()
+        // if i set it in checkSubmit() I get 'this field is required'...race condition?
+        rankingInput.value = chosenArray.join(',');
+    }
+
+    let sortableProps = {
+        group: 'shared',
+        // seems onChange is not fired when removing items from the list
+        onChange: onChange
+    };
+    Sortable.create(items_choices, sortableProps);
+    let choicesSortable = Sortable.create(items_selected, sortableProps);
+
+    function checkSubmit() {
+        if (chosenArray.length !== js_vars.NUM_CHOICES) {
+            alert(`You must choose exactly ${js_vars.NUM_CHOICES} items.`);
+        } else {
+            let form = document.getElementById('form');
+            form.submit();
+        }
+    }
+</script>
+
+<button type="button" class="btn btn-primary" onclick="checkSubmit()">Next</button>
+
+{{ endblock }}

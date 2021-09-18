@@ -11,12 +11,6 @@ SESSION_CONFIG_DEFAULTS = dict(
 
 SESSION_CONFIGS = [
     dict(
-        name='sequential',
-        display_name="""Sequential game""",
-        num_demo_participants=3,
-        app_sequence=['sequential'],
-    ),
-    dict(
         name='are_you_sure',
         display_name="""'Are you sure?' popup based on the user's input""",
         num_demo_participants=1,
@@ -245,10 +239,16 @@ SESSION_CONFIGS = [
         app_sequence=['random_task_order'],
     ),
     dict(
-        name='ranking_widget',
+        name='rank_widget',
         display_name="Rank/reorder widget",
         num_demo_participants=1,
-        app_sequence=['ranking_widget'],
+        app_sequence=['rank_widget'],
+    ),
+    dict(
+        name='rank_widget_topN',
+        display_name="Rank/reorder widget (choose top N)",
+        num_demo_participants=1,
+        app_sequence=['rank_widget_topN'],
     ),
     dict(
         name='redirect_to_other_website',
@@ -261,6 +261,12 @@ SESSION_CONFIGS = [
         display_name='Sandwich design (App A -> App B -> App A)',
         num_demo_participants=1,
         app_sequence=['appcopy1', 'multi_select', 'appcopy2'],
+    ),
+    dict(
+        name='sequential',
+        display_name="""Sequential game""",
+        num_demo_participants=3,
+        app_sequence=['sequential'],
     ),
     dict(
         name='other_player_previous_rounds',
@@ -279,6 +285,12 @@ SESSION_CONFIGS = [
         display_name="Slider that changes an image (e.g. happy to sad scale)",
         num_demo_participants=1,
         app_sequence=['slider_graphic'],
+    ),
+    dict(
+        name='slider_checkbox_reloadable',
+        display_name="Sliders and checkboxes that don't get wiped out on form reload.",
+        app_sequence=['slider_checkbox_reloadable'],
+        num_demo_participants=1,
     ),
     dict(
         name='wait_page_timeout',

@@ -4,6 +4,7 @@ doc = """
 Timeout spanning multiple pages
 """
 
+
 class Constants(BaseConstants):
     name_in_url = 'multi_page_timeout'
     players_per_group = None
@@ -23,18 +24,15 @@ class Player(BasePlayer):
     pass
 
 
-def is_displayed1(player: Player):
-    participant = player.participant
-    import time
-
-    return participant.expiry - time.time() > 0
-
-
 def get_timeout_seconds1(player: Player):
     participant = player.participant
     import time
 
     return participant.expiry - time.time()
+
+
+def is_displayed1(player: Player):
+    return get_timeout_seconds1(player) > 0
 
 
 class Intro(Page):
@@ -61,6 +59,7 @@ class Page2(Page):
 class Page3(Page):
     is_displayed = is_displayed1
     timer_text = Constants.timer_text
+    get_timeout_seconds = get_timeout_seconds1
 
 
 page_sequence = [Intro, Page1, Page2, Page3]

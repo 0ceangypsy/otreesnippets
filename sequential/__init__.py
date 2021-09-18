@@ -10,8 +10,7 @@ class Constants(BaseConstants):
     name_in_url = 'sequential'
     players_per_group = 3
     num_rounds = 1
-    contribute_template = __name__ + '/Contribute.html'
-    table_template = __name__ + '/table.html'
+    main_template = __name__ + '/Decide.html'
 
 
 class Subsession(BaseSubsession):
@@ -19,34 +18,36 @@ class Subsession(BaseSubsession):
 
 
 class Group(BaseGroup):
-    pass
+    mixer = models.StringField(
+        choices=['Pineapple juice', 'Orange juice', 'Cola', 'Milk'],
+        label="Choose a mixer",
+        widget=widgets.RadioSelect,
+    )
+    liqueur = models.StringField(
+        choices=['Blue curacao', 'Triple sec', 'Amaretto', 'Kahlua'],
+        label="Choose a liqueur",
+        widget=widgets.RadioSelect,
+    )
+    spirit = models.StringField(
+        choices=['Vodka', 'Rum', 'Gin', 'Tequila'],
+        label="Choose a spirit",
+        widget=widgets.RadioSelect,
+    )
 
 
 class Player(BasePlayer):
-    contribution = models.CurrencyField(label="How much do you want to contribute?")
-
-
-def vars_for_template(player: Player):
-    return dict(
-        players_with_contributions=[
-            other
-            for other in player.get_others_in_group()
-            if other.id_in_group < player.id_in_group
-        ]
-    )
+    pass
 
 
 # PAGES
 class P1(Page):
-    form_model = 'player'
-    form_fields = ['contribution']
-    template_name = Constants.contribute_template
+    form_model = 'group'
+    form_fields = ['mixer']
+    template_name = Constants.main_template
 
     @staticmethod
     def is_displayed(player: Player):
         return player.id_in_group == 1
-
-    vars_for_template = vars_for_template
 
 
 class WaitPage1(WaitPage):
@@ -54,15 +55,13 @@ class WaitPage1(WaitPage):
 
 
 class P2(Page):
-    form_model = 'player'
-    form_fields = ['contribution']
-    template_name = Constants.contribute_template
+    form_model = 'group'
+    form_fields = ['liqueur']
+    template_name = Constants.main_template
 
     @staticmethod
     def is_displayed(player: Player):
         return player.id_in_group == 2
-
-    vars_for_template = vars_for_template
 
 
 class WaitPage2(WaitPage):
@@ -70,15 +69,13 @@ class WaitPage2(WaitPage):
 
 
 class P3(Page):
-    form_model = 'player'
-    form_fields = ['contribution']
-    template_name = Constants.contribute_template
+    form_model = 'group'
+    form_fields = ['spirit']
+    template_name = Constants.main_template
 
     @staticmethod
     def is_displayed(player: Player):
         return player.id_in_group == 3
-
-    vars_for_template = vars_for_template
 
 
 class WaitPage3(WaitPage):
