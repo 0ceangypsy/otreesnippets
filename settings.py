@@ -11,6 +11,11 @@ SESSION_CONFIG_DEFAULTS = dict(
 
 SESSION_CONFIGS = [
     dict(
+        name='getattr_setattr',
+        num_demo_participants=1,
+        app_sequence=['getattr_setattr'],
+    ),
+    dict(
         name='are_you_sure',
         display_name="""'Are you sure?' popup based on the user's input""",
         num_demo_participants=1,
@@ -196,7 +201,7 @@ SESSION_CONFIGS = [
     dict(
         name='radio_switching_point',
         display_name='Radio button table with single switching point (strategy method)',
-        num_demo_participants=4,
+        num_demo_participants=1,
         app_sequence=['radio_switching_point'],
     ),
     dict(
