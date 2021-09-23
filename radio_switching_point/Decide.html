@@ -53,11 +53,19 @@ Choose a value for each row
         if (form.reportValidity()) {
             let switchingPoint = document.getElementById('id_switching_point');
 
+            let allChoicesAreOnLeft = true;
             for (let radio of allRadios) {
                 if (radio.value === 'right' && radio.checked) {
                     switchingPoint.value = radio.dataset.amount;
+                    allChoicesAreOnLeft = false;
                     break;
                 }
+            }
+            if (allChoicesAreOnLeft) {
+                // '9999' represents the value if the user didn't click the right side for any choice
+                // it means their switching point is off the scale. you can change 9999 to some other value
+                // that is larger than any right-hand-side choice.
+                switchingPoint.value = '9999';
             }
             form.submit();
         }

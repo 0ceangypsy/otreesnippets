@@ -17,6 +17,7 @@ class Subsession(BaseSubsession):
 
 
 class Group(BaseGroup):
+
     pass
 
 

@@ -3,8 +3,8 @@
 <p>What languages do you speak? Select all that apply.</p>
 {{ for field in Constants.languages }}
 <label>
-    <input type="checkbox" name="{{ field }}" value="1">
-    {{ field }}
+    <input type="checkbox" name="{{ field.name }}" value="1">
+    {{ field.label }}
 </label><br>
 {{ endfor }}
 

@@ -11,11 +11,6 @@ SESSION_CONFIG_DEFAULTS = dict(
 
 SESSION_CONFIGS = [
     dict(
-        name='getattr_setattr',
-        num_demo_participants=1,
-        app_sequence=['getattr_setattr'],
-    ),
-    dict(
         name='are_you_sure',
         display_name="""'Are you sure?' popup based on the user's input""",
         num_demo_participants=1,
@@ -70,6 +65,12 @@ SESSION_CONFIGS = [
         app_sequence=['comprehension_test'],
     ),
     dict(
+        name='comprehension_test_simple',
+        display_name="Comprehension test (simple version)",
+        num_demo_participants=1,
+        app_sequence=['comprehension_test_simple'],
+    ),
+    dict(
         name='constant_sum',
         display_name="Constant-sum input (3 numbers that add up to 100)",
         num_demo_participants=1,
@@ -105,6 +106,30 @@ SESSION_CONFIGS = [
         display_name='Dropout detection (if user does not submit page in time)',
         num_demo_participants=1,
         app_sequence=['dropout_detection'],
+    ),
+    dict(
+        name='factorial_treatments',
+        display_name="Factorial balanced treatment design",
+        num_demo_participants=16,
+        app_sequence=['factorial_treatments'],
+    ),
+    dict(
+        name='getattr_setattr',
+        display_name="""getattr() to access numbered fields like player.num1, player.num2, ..., player.num9""",
+        num_demo_participants=1,
+        app_sequence=['getattr_setattr'],
+    ),
+    dict(
+        name='gbat_treatments',
+        display_name="group_by_arrival_time and group-level treatments",
+        num_demo_participants=6,
+        app_sequence=['gbat_treatments'],
+    ),
+    dict(
+        name='gbat_treatments_complex',
+        display_name="group_by_arrival_time and group-level treatments (complex version)",
+        num_demo_participants=6,
+        app_sequence=['gbat_treatments_complex'],
     ),
     dict(
         name='gbat_new_partners',
@@ -157,6 +182,18 @@ SESSION_CONFIGS = [
         app_sequence=['min_time_on_page'],
     ),
     dict(
+        name='multi_select',
+        display_name="Multi-select widget (a.k.a. multiple choice / multiple answer)",
+        num_demo_participants=1,
+        app_sequence=['multi_select'],
+    ),
+    dict(
+        name='multi_select_complex',
+        display_name="Multi-select widget (flexible version with custom labels & 'select at least N')",
+        num_demo_participants=1,
+        app_sequence=['multi_select_complex'],
+    ),
+    dict(
         name='pass_data_between_apps',
         display_name='Pass data between apps',
         num_demo_participants=1,
@@ -179,12 +216,6 @@ SESSION_CONFIGS = [
         display_name="Progress bar",
         num_demo_participants=1,
         app_sequence=['progress_bar'],
-    ),
-    dict(
-        name='multi_select',
-        display_name="Question that lets you select multiple options",
-        num_demo_participants=1,
-        app_sequence=['multi_select'],
     ),
     dict(
         name='questions_from_csv',
@@ -224,12 +255,6 @@ SESSION_CONFIGS = [
             'random_num_rounds_multiplayer',
             'random_num_rounds_multiplayer_end',
         ],
-    ),
-    dict(
-        name='randomize_cross_product',
-        display_name="Randomize multiple factors in a balanced way",
-        num_demo_participants=16,
-        app_sequence=['randomize_cross_product'],
     ),
     dict(
         name='random_question_order',
@@ -376,4 +401,5 @@ PARTICIPANT_FIELDS = [
     'selected_round',
     'task_rounds',
     'wait_page_arrival',
+    'time_pressure',
 ]

@@ -1,5 +1,7 @@
 from otree.api import *
 
+doc = """Randomize multiple factors in a balanced way"""
+
 
 class Constants(BaseConstants):
     name_in_url = 'randomize_cross_product'
@@ -15,12 +17,13 @@ def creating_session(subsession):
     import itertools
 
     treatments = itertools.cycle(
-        [[True, True], [True, False], [False, True], [False, False]]
+        itertools.product([True, False], [True, False], [100, 200, 300])
     )
-    for player in subsession.get_players():
+    for p in subsession.get_players():
         treatment = next(treatments)
-        player.time_pressure = treatment[0]
-        player.high_tax = treatment[1]
+        p.time_pressure = treatment[0]
+        p.high_tax = treatment[1]
+        p.endowment = treatment[2]
 
 
 class Group(BaseGroup):
@@ -30,6 +33,7 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     time_pressure = models.BooleanField()
     high_tax = models.BooleanField()
+    endowment = models.CurrencyField()
 
 
 class MyPage(Page):
