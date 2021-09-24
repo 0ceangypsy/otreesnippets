@@ -2,7 +2,11 @@ from otree.api import *
 
 
 doc = """
-Your app description
+Experimenter input during the experiment,
+e.g. entering the result of a random draw.
+
+If you want the experimenter to be able to make an input at any time,
+you can use the REST API (especially the session_vars endpoint).
 """
 
 

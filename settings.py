@@ -206,6 +206,12 @@ SESSION_CONFIGS = [
         app_sequence=['pass_data_between_apps_part1', 'pass_data_between_apps_part2'],
     ),
     dict(
+        name='pay_random_app',
+        display_name="Pay a randomly selected app",
+        num_demo_participants=2,
+        app_sequence=['pay_random_app1', 'pay_random_app2', 'pay_random_app3'],
+    ),
+    dict(
         name='pay_random_round',
         display_name="Pay a randomly selected round",
         num_demo_participants=1,
@@ -408,4 +414,5 @@ PARTICIPANT_FIELDS = [
     'task_rounds',
     'wait_page_arrival',
     'time_pressure',
+    'app_payoffs',
 ]
