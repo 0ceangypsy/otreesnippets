@@ -48,7 +48,7 @@ class Page2(Page):
         # so feel free to do things like:
         # - incrementing by more than 1:
         # participant.progress += 2
-        # - setting to a specific value:
+        # - setting to a specific valueInput:
         # participant.progress = 8
         participant.progress += 1
 

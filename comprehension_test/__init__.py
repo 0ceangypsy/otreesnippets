@@ -22,14 +22,13 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     num_failed_attempts = models.IntegerField(initial=0)
     failed_too_many = models.BooleanField(initial=False)
-    quiz1 = models.IntegerField(label='What is 19 + 23?')
-    quiz2 = models.StringField(label='What is the capital of Canada?')
-    quiz3 = models.IntegerField(
-        label="What year was Barack Obama first elected president?"
+    quiz1 = models.IntegerField(label='What is 2 + 2?')
+    quiz2 = models.StringField(
+        label='What is the capital of Canada?',
+        choices=['Ottawa', 'Toronto', 'Vancouver'],
     )
-    quiz4 = models.BooleanField(
-        label="Was Thomas Jefferson the first president of the USA?"
-    )
+    quiz3 = models.IntegerField(label="What year did COVID-19 start?")
+    quiz4 = models.BooleanField(label="Is 9 a prime number")
 
 
 class MyPage(Page):
@@ -40,12 +39,9 @@ class MyPage(Page):
     def error_message(player: Player, values):
         # alternatively, you could make quiz1_error_message, quiz2_error_message, etc.
         # but if you have many similar fields, this is more efficient.
-        solutions = dict(quiz1=42, quiz2='Ottawa', quiz3=2008, quiz4=False)
+        solutions = dict(quiz1=4, quiz2='Ottawa', quiz3=2019, quiz4=False)
 
         errors = {f: 'Wrong' for f in solutions if values[f] != solutions[f]}
-        # if you don't care about failed attempts, just put:
-        # return errors
-        # otherwise, do this:
         if errors:
             player.num_failed_attempts += 1
             if player.num_failed_attempts >= 3:

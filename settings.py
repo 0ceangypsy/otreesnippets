@@ -108,6 +108,12 @@ SESSION_CONFIGS = [
         app_sequence=['dropout_detection'],
     ),
     dict(
+        name='experimenter_input',
+        app_sequence=['experimenter_input'],
+        display_name="Experimenter input during the experiment (e.g. entering a random drawing)",
+        num_demo_participants=2,
+    ),
+    dict(
         name='factorial_treatments',
         display_name="Factorial balanced treatment design",
         num_demo_participants=16,
@@ -171,7 +177,7 @@ SESSION_CONFIGS = [
     ),
     dict(
         name='question_with_other_option',
-        display_name="Menu with an 'other' option that lets you type in a value manually",
+        display_name="Menu with an 'other' option that lets you type in a valueInput manually",
         num_demo_participants=4,
         app_sequence=['question_with_other_option'],
     ),
@@ -366,7 +372,7 @@ USE_POINTS = True
 ROOMS = []
 
 ADMIN_USERNAME = 'admin'
-# for security, best to set admin password in an environment variable
+# for security, best to set admin passwordInput in an environment variable
 ADMIN_PASSWORD = environ.get('OTREE_ADMIN_PASSWORD')
 
 

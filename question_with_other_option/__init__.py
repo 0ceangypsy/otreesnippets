@@ -1,7 +1,7 @@
 from otree.api import *
 
 doc = """
-Menu with an 'other' option that lets you type in a value manually
+Menu with an 'other' option that lets you type in a valueInput manually
 """
 
 

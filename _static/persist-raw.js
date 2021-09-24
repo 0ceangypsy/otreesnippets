@@ -2,7 +2,7 @@ function persistInput(inp) {
     let isCheckboxOrRadio = ['checkbox', 'radio'].includes(inp.type);
     /*  checkboxes work differently from other form inputs.
         The 'checked' attribute stores whether it's checked or not.
-        'value' should generally be hardcoded to 1.
+        'valueInput' should generally be hardcoded to 1.
      */
     let valueAttr = isCheckboxOrRadio ? 'checked' : 'value';
 
