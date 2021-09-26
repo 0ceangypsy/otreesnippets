@@ -10,6 +10,7 @@ SESSION_CONFIG_DEFAULTS = dict(
 )
 
 SESSION_CONFIGS = [
+    dict(name='supergames', num_demo_participants=1, app_sequence=['supergames'],),
     dict(
         name='input_calculation',
         display_name="Calculation based on user's input",

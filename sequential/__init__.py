@@ -2,7 +2,7 @@ from otree.api import *
 
 
 doc = """
-Sequential game
+Sequential / cascade game
 """
 
 
