@@ -13,7 +13,16 @@ class Constants(BaseConstants):
 
 
 class Subsession(BaseSubsession):
-    pass
+    is_practice_round = models.BooleanField()
+    real_round_number = models.IntegerField()
+
+
+def creating_session(subsession: Subsession):
+    if subsession.round_number == 1:
+        for ss in subsession.in_rounds(1, Constants.num_rounds):
+            ss.is_practice_round = ss.round_number <= Constants.num_practice_rounds
+            if not ss.is_practice_round:
+                ss.real_round_number = ss.round_number - Constants.num_practice_rounds
 
 
 class Group(BaseGroup):
@@ -26,24 +35,13 @@ class Player(BasePlayer):
     is_correct = models.BooleanField()
 
 
-def is_practice_round(player: Player):
-    return player.round_number <= Constants.num_practice_rounds
-
-
 def real_round_number(player: Player):
-    return player.round_number - Constants.num_practice_rounds
+    return player
 
 
 class Play(Page):
     form_model = 'player'
     form_fields = ['response']
-
-    @staticmethod
-    def vars_for_template(player: Player):
-        return dict(
-            is_practice=is_practice_round(player),
-            real_round_number=real_round_number(player),
-        )
 
     @staticmethod
     def before_next_page(player: Player, timeout_happened):
@@ -54,7 +52,8 @@ class Play(Page):
 class PracticeFeedback(Page):
     @staticmethod
     def is_displayed(player: Player):
-        return is_practice_round(player)
+        subsession = player.subsession
+        return subsession.is_practice_round
 
 
 class Results(Page):

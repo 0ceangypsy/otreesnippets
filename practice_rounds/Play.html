@@ -1,8 +1,8 @@
 {{ block title }}
-    {{ if is_practice }}
-        Practice round {{ player.round_number }} of {{ Constants.num_practice_rounds }}
+    {{ if subsession.is_practice_round }}
+        Practice round {{ subsession.round_number }} of {{ Constants.num_practice_rounds }}
     {{ else }}
-        Round {{ real_round_number }} of {{ Constants.num_real_rounds }}
+        Round {{ subsession.real_round_number }} of {{ Constants.num_real_rounds }}
     {{ endif}}
 {{ endblock }}
 {{ block content }}
