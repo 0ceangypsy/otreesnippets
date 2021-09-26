@@ -11,6 +11,12 @@ SESSION_CONFIG_DEFAULTS = dict(
 
 SESSION_CONFIGS = [
     dict(
+        name='input_calculation',
+        display_name="Calculation based on user's input",
+        num_demo_participants=1,
+        app_sequence=['input_calculation'],
+    ),
+    dict(
         name='are_you_sure',
         display_name="""'Are you sure?' popup based on the user's input""",
         num_demo_participants=1,
@@ -170,6 +176,12 @@ SESSION_CONFIGS = [
         app_sequence=['history_table'],
     ),
     dict(
+        name='live_volunteer',
+        display_name="Live volunteer's dilemma (first player to click moves everyone forward).",
+        num_demo_participants=3,
+        app_sequence=['live_volunteer'],
+    ),
+    dict(
         name='longitudinal',
         display_name='Longitudinal study (2-part study taking place across days/weeks)',
         num_demo_participants=1,
@@ -279,6 +291,12 @@ SESSION_CONFIGS = [
         display_name='Randomize order of different tasks',
         num_demo_participants=4,
         app_sequence=['random_task_order'],
+    ),
+    dict(
+        name='rank_players',
+        display_name="Rank players",
+        num_demo_participants=4,
+        app_sequence=['rank_players'],
     ),
     dict(
         name='rank_widget',

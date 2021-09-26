@@ -24,6 +24,8 @@ def creating_session(subsession: Subsession):
     session.arrived_ids = set()
 
     for p in subsession.get_players():
+        # we just determine it randomly here.
+        # in your game, you should replace it with your desired logic.
         selected = random.choice([False, True])
         p.selected_for_waitpage = selected
         if selected:
@@ -57,12 +59,10 @@ class WaitForSelected(Page):
         return {0: dict(finished=True)}
 
     @staticmethod
-    def before_next_page(player: Player, timeout_happened):
+    def error_message(player: Player, values):
         session = player.session
         if session.arrived_ids != session.wait_for_ids:
-            raise Exception(
-                "Page somehow proceeded before all players are ready"
-            )
+            return "Page somehow proceeded before all players are ready"
 
 
 class Results(Page):

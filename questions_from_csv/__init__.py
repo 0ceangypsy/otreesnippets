@@ -89,6 +89,8 @@ class Stimuli(Page):
             trial.choice = responses[str(trial.id)]
             trial.is_correct = trial.choice == trial.solution
             player.num_correct += int(trial.is_correct)
+        # don't need it anymore
+        player.raw_responses = ''
 
 
 class Results(Page):
