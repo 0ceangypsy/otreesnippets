@@ -10,13 +10,6 @@ SESSION_CONFIG_DEFAULTS = dict(
 )
 
 SESSION_CONFIGS = [
-    dict(name='supergames', num_demo_participants=1, app_sequence=['supergames'],),
-    dict(
-        name='input_calculation',
-        display_name="Calculation based on user's input",
-        num_demo_participants=1,
-        app_sequence=['input_calculation'],
-    ),
     dict(
         name='are_you_sure',
         display_name="""'Are you sure?' popup based on the user's input""",
@@ -52,6 +45,12 @@ SESSION_CONFIGS = [
         display_name='Block mobile browsers',
         num_demo_participants=1,
         app_sequence=['detect_mobile'],
+    ),
+    dict(
+        name='input_calculation',
+        display_name="Calculation based on user's input",
+        num_demo_participants=1,
+        app_sequence=['input_calculation'],
     ),
     dict(
         name='chat_with_experimenter',
@@ -352,6 +351,12 @@ SESSION_CONFIGS = [
         display_name="Sliders and checkboxes that don't get wiped out on form reload.",
         app_sequence=['slider_checkbox_reloadable'],
         num_demo_participants=1,
+    ),
+    dict(
+        name='supergames',
+        display_name="Supergames consisting of multiple rounds each",
+        num_demo_participants=1,
+        app_sequence=['supergames'],
     ),
     dict(
         name='wait_page_timeout',

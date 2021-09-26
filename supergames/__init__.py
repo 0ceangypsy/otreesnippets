@@ -2,7 +2,7 @@ from otree.api import *
 
 
 doc = """
-App that has multiple supergames consisting of multiple rounds each
+Supergames consisting of multiple rounds each
 """
 
 
