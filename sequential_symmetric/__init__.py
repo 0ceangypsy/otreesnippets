@@ -2,15 +2,17 @@ from otree.api import *
 
 
 doc = """
-Sequential game (asymmetric)
+Sequential / cascade game (symmetric)
 """
 
 
 class Constants(BaseConstants):
-    name_in_url = 'sequential'
+    name_in_url = 'sequential_symmetric'
     players_per_group = 3
     num_rounds = 1
     main_template = __name__ + '/Decide.html'
+    table_template = __name__ + '/table.html'
+    form_fields = ['decision']
 
 
 class Subsession(BaseSubsession):
@@ -18,36 +20,36 @@ class Subsession(BaseSubsession):
 
 
 class Group(BaseGroup):
-    mixer = models.StringField(
-        choices=['Pineapple juice', 'Orange juice', 'Cola', 'Milk'],
-        label="Choose a mixer",
-        widget=widgets.RadioSelect,
-    )
-    liqueur = models.StringField(
-        choices=['Blue curacao', 'Triple sec', 'Amaretto', 'Kahlua'],
-        label="Choose a liqueur",
-        widget=widgets.RadioSelect,
-    )
-    spirit = models.StringField(
-        choices=['Vodka', 'Rum', 'Gin', 'Tequila'],
-        label="Choose a spirit",
-        widget=widgets.RadioSelect,
-    )
+    pass
 
 
 class Player(BasePlayer):
-    pass
+    decision = models.IntegerField(
+        label="How many countries are there in Africa? (Make your best guess)"
+    )
+
+
+def vars_for_template1(player: Player):
+    return dict(
+        players=[
+            p
+            for p in player.get_others_in_group()
+            if p.id_in_group < player.id_in_group
+        ]
+    )
 
 
 # PAGES
 class P1(Page):
-    form_model = 'group'
-    form_fields = ['mixer']
+    form_model = 'player'
+    form_fields = Constants.form_fields
     template_name = Constants.main_template
 
     @staticmethod
     def is_displayed(player: Player):
         return player.id_in_group == 1
+
+    vars_for_template = vars_for_template1
 
 
 class WaitPage1(WaitPage):
@@ -55,13 +57,15 @@ class WaitPage1(WaitPage):
 
 
 class P2(Page):
-    form_model = 'group'
-    form_fields = ['liqueur']
+    form_model = 'player'
+    form_fields = Constants.form_fields
     template_name = Constants.main_template
 
     @staticmethod
     def is_displayed(player: Player):
         return player.id_in_group == 2
+
+    vars_for_template = vars_for_template1
 
 
 class WaitPage2(WaitPage):
@@ -69,13 +73,15 @@ class WaitPage2(WaitPage):
 
 
 class P3(Page):
-    form_model = 'group'
-    form_fields = ['spirit']
+    form_model = 'player'
+    form_fields = Constants.form_fields
     template_name = Constants.main_template
 
     @staticmethod
     def is_displayed(player: Player):
         return player.id_in_group == 3
+
+    vars_for_template = vars_for_template1
 
 
 class WaitPage3(WaitPage):
@@ -86,7 +92,7 @@ class Results(Page):
     @staticmethod
     def vars_for_template(player: Player):
         group = player.group
-        return dict(players_with_contributions=group.get_players())
+        return dict(players=group.get_players())
 
 
 page_sequence = [P1, WaitPage1, P2, WaitPage2, P3, WaitPage3, Results]

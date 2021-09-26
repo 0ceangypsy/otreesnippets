@@ -329,6 +329,12 @@ SESSION_CONFIGS = [
         app_sequence=['sequential'],
     ),
     dict(
+        name='sequential_symmetric',
+        display_name="""Sequential game (symmetric)""",
+        num_demo_participants=3,
+        app_sequence=['sequential_symmetric'],
+    ),
+    dict(
         name='other_player_previous_rounds',
         display_name="Showing other players' decisions from previous rounds",
         num_demo_participants=8,
