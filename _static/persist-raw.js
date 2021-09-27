@@ -1,6 +1,6 @@
 function persistInput(inp) {
     let isCheckbox = inp.type === 'checkbox';
-    /*  checkboxes work differently from other formEle inputs.
+    /*  checkboxes work differently from other form inputs.
         The 'checked' attribute stores whether it's checked or not.
         'valueInput' should generally be hardcoded to 1.
      */
@@ -10,7 +10,7 @@ function persistInput(inp) {
     if (storedValue != null) {
         // with radios, you have multiple inputs that all have the same name.
         // this is how to check the right one.
-        formEle[inp.name][valueAttr] = storedValue;
+        form[inp.name][valueAttr] = storedValue;
     }
 
     inp.addEventListener('input', function () {
@@ -29,10 +29,10 @@ let lastIndex = urlParts.length - 1
 let pageNumber = urlParts[lastIndex];
 // in case the path somehow has a trailing slash
 if (pageNumber === '') pageNumber = urlParts[lastIndex - 1];
-let formEle;
+let form;
 
 document.addEventListener("DOMContentLoaded", function (event) {
-    formEle = document.getElementById('form');
+    form = document.getElementById('form');
     for (let inp of document.getElementsByClassName('persist')) {
         persistInput(inp);
     }

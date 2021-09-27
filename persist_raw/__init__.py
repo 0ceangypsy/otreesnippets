@@ -2,7 +2,7 @@ from otree.api import *
 
 
 doc = """
-Sliders and checkboxes that don't get wiped out on formEle reload.
+Sliders and checkboxes that don't get wiped out on form reload.
 Also works for text/number inputs, etc. 
 """
 

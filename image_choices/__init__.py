@@ -2,7 +2,7 @@ from otree.api import *
 
 
 doc = """
-Image choices with radio buttons
+Images in radio button choices
 """
 
 
@@ -39,10 +39,6 @@ class Player(BasePlayer):
 class MyPage(Page):
     form_model = 'player'
     form_fields = ['img_choice']
-
-    @staticmethod
-    def error_message(player: Player, values):
-        return 'aa'
 
 
 class ResultsWaitPage(WaitPage):

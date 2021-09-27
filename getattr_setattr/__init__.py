@@ -14,7 +14,7 @@ For example, let's say you have fields like this:
     ...
     num10 = models.IntegerField()
 
-If you don't need to put them in a formEle, then you can replace this simply with 
+If you don't need to put them in a form, then you can replace this simply with 
 a list in a participant field, since they can be more easily accessed by number, 
 e.g. participant.my_numbers[5]
 

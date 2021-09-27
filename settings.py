@@ -11,9 +11,6 @@ SESSION_CONFIG_DEFAULTS = dict(
 
 SESSION_CONFIGS = [
     dict(
-        name='image_choices', num_demo_participants=1, app_sequence=['image_choices'],
-    ),
-    dict(
         name='are_you_sure',
         display_name="""'Are you sure?' popup based on the user's input""",
         num_demo_participants=1,
@@ -63,7 +60,7 @@ SESSION_CONFIGS = [
     ),
     dict(
         name='complex_form_layout',
-        display_name="Complex formEle layout",
+        display_name="Complex form layout",
         num_demo_participants=1,
         app_sequence=['complex_form_layout'],
     ),
@@ -179,6 +176,12 @@ SESSION_CONFIGS = [
         app_sequence=['history_table'],
     ),
     dict(
+        name='image_choices',
+        display_name="Images in radio button choices",
+        num_demo_participants=1,
+        app_sequence=['image_choices'],
+    ),
+    dict(
         name='live_volunteer',
         display_name="Live volunteer's dilemma (first player to click moves everyone forward).",
         num_demo_participants=3,
@@ -234,7 +237,7 @@ SESSION_CONFIGS = [
     ),
     dict(
         name='persist_raw',
-        display_name="Persist raw HTML formEle inputs on reload (sliders, checkboxes, etc).",
+        display_name="Persist raw HTML form inputs on reload (sliders, checkboxes, etc).",
         app_sequence=['persist_raw'],
         num_demo_participants=1,
     ),
@@ -258,7 +261,7 @@ SESSION_CONFIGS = [
     ),
     dict(
         name='quiz_with_explanation',
-        display_name="Quiz + post-quiz explanation. Re-display the previous page's formEle as read-only, with answers/explanation.",
+        display_name="Quiz + post-quiz explanation. Re-display the previous page's form as read-only, with answers/explanation.",
         num_demo_participants=1,
         app_sequence=['quiz_with_explanation'],
     ),
@@ -309,7 +312,7 @@ SESSION_CONFIGS = [
     ),
     dict(
         name='rank_widget',
-        display_name="Rank/reorder formEle widget",
+        display_name="Rank/reorder form widget",
         num_demo_participants=1,
         app_sequence=['rank_widget'],
     ),
