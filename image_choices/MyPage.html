@@ -1,0 +1,16 @@
+{{ block content }}
+
+    <p>Choose your favorite image.</p>
+    {{ for image in Constants.image_data }}
+        <label style="text-align: center">
+            <img src="{{ static image.path }}" width="200px">
+            <br>
+            <input type="radio" name="img_choice" value="{{ image.name }}">
+        </label>
+    {{ endfor }}
+    {{ formfield_errors 'img_choice' }}
+
+    <br>
+    {{ next_button }}
+
+{{ endblock }}

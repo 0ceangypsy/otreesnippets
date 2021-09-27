@@ -11,6 +11,11 @@ SESSION_CONFIG_DEFAULTS = dict(
 
 SESSION_CONFIGS = [
     dict(
+        name='image_choices',
+        num_demo_participants=1,
+        app_sequence=['image_choices'],
+    ),
+    dict(
         name='are_you_sure',
         display_name="""'Are you sure?' popup based on the user's input""",
         num_demo_participants=1,
