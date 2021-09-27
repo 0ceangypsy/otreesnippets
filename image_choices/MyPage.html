@@ -1,7 +1,7 @@
 {{ block content }}
 
     <p>Choose your favorite image.</p>
-    {{ for image in Constants.image_data }}
+    {{ for image in image_data }}
         <label style="text-align: center">
             <img src="{{ static image.path }}" width="200px">
             <br>

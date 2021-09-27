@@ -6,21 +6,14 @@ Images in radio button choices
 """
 
 
-def make_image_data(images):
-    return [dict(name=name, path='shapes/{}'.format(name)) for name in images]
+def make_image_data(image_names):
+    return [dict(name=name, path='shapes/{}'.format(name)) for name in image_names]
 
 
 class Constants(BaseConstants):
     name_in_url = 'image_choices'
     players_per_group = None
     num_rounds = 1
-    image_names = [
-        'circle-blue.svg',
-        'plus-green.svg',
-        'star-red.svg',
-        'triangle-yellow.svg',
-    ]
-    image_data = make_image_data(image_names)
 
 
 class Subsession(BaseSubsession):
@@ -39,6 +32,16 @@ class Player(BasePlayer):
 class MyPage(Page):
     form_model = 'player'
     form_fields = ['img_choice']
+
+    @staticmethod
+    def vars_for_template(player: Player):
+        image_names = [
+            'circle-blue.svg',
+            'plus-green.svg',
+            'star-red.svg',
+            'triangle-yellow.svg',
+        ]
+        return dict(image_data=make_image_data(image_names))
 
 
 class ResultsWaitPage(WaitPage):

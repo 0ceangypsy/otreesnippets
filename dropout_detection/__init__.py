@@ -40,10 +40,8 @@ class ByeDropout(Page):
         return player.is_dropout
 
     @staticmethod
-    def before_next_page(player: Player, timeout_happened):
-        raise Exception(
-            "Player somehow tried to proceed past a page with no next button"
-        )
+    def error_message(player: Player, values):
+        return "Cannot proceed past this page"
 
 
 class Page2(Page):

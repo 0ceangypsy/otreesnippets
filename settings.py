@@ -11,6 +11,11 @@ SESSION_CONFIG_DEFAULTS = dict(
 
 SESSION_CONFIGS = [
     dict(
+        name='dropout_end_game',
+        num_demo_participants=2,
+        app_sequence=['dropout_end_game', 'placeholder'],
+    ),
+    dict(
         name='are_you_sure',
         display_name="""'Are you sure?' popup based on the user's input""",
         num_demo_participants=1,
