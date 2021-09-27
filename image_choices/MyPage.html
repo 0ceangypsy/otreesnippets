@@ -5,12 +5,14 @@
         <label style="text-align: center">
             <img src="{{ static image.path }}" width="200px">
             <br>
-            <input type="radio" name="img_choice" value="{{ image.name }}">
+            <input type="radio" name="img_choice" value="{{ image.name }}" class="persist">
         </label>
     {{ endfor }}
     {{ formfield_errors 'img_choice' }}
 
     <br>
     {{ next_button }}
+
+    <script src="{{ static 'persist-raw.js' }}"></script>
 
 {{ endblock }}

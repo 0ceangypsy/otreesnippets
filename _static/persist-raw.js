@@ -1,23 +1,22 @@
 function persistInput(inp) {
-    let isCheckboxOrRadio = ['checkbox', 'radio'].includes(inp.type);
-    /*  checkboxes work differently from other form inputs.
+    let isCheckbox = inp.type === 'checkbox';
+    /*  checkboxes work differently from other formEle inputs.
         The 'checked' attribute stores whether it's checked or not.
         'valueInput' should generally be hardcoded to 1.
      */
-    let valueAttr = isCheckboxOrRadio ? 'checked' : 'value';
-
+    let valueAttr = isCheckbox ? 'checked' : 'value';
     let key = `input-${pageNumber}-${inp.name}`;
-
     let storedValue = sessionStorage.getItem(key);
-
     if (storedValue != null) {
-        inp[valueAttr] = storedValue;
+        // with radios, you have multiple inputs that all have the same name.
+        // this is how to check the right one.
+        formEle[inp.name][valueAttr] = storedValue;
     }
 
     inp.addEventListener('input', function () {
         let curValue = inp[valueAttr];
         // needed because sessionStorage implicitly converts true/false to strings
-        if (isCheckboxOrRadio) curValue = curValue ? 'checked' : '';
+        if (isCheckbox) curValue = curValue ? 'checked' : '';
         sessionStorage.setItem(key, curValue);
     });
 }
@@ -30,11 +29,11 @@ let lastIndex = urlParts.length - 1
 let pageNumber = urlParts[lastIndex];
 // in case the path somehow has a trailing slash
 if (pageNumber === '') pageNumber = urlParts[lastIndex - 1];
+let formEle;
 
 document.addEventListener("DOMContentLoaded", function (event) {
+    formEle = document.getElementById('form');
     for (let inp of document.getElementsByClassName('persist')) {
         persistInput(inp);
     }
 });
-
-

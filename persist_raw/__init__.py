@@ -2,12 +2,13 @@ from otree.api import *
 
 
 doc = """
-Sliders and checkboxes that don't get wiped out on form reload. 
+Sliders and checkboxes that don't get wiped out on formEle reload.
+Also works for text/number inputs, etc. 
 """
 
 
 class Constants(BaseConstants):
-    name_in_url = 'slider_checkbox_reloadable'
+    name_in_url = 'persist_raw'
     players_per_group = None
     num_rounds = 1
 

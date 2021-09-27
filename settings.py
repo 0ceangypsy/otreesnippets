@@ -11,9 +11,7 @@ SESSION_CONFIG_DEFAULTS = dict(
 
 SESSION_CONFIGS = [
     dict(
-        name='image_choices',
-        num_demo_participants=1,
-        app_sequence=['image_choices'],
+        name='image_choices', num_demo_participants=1, app_sequence=['image_choices'],
     ),
     dict(
         name='are_you_sure',
@@ -65,7 +63,7 @@ SESSION_CONFIGS = [
     ),
     dict(
         name='complex_form_layout',
-        display_name="Complex form layout",
+        display_name="Complex formEle layout",
         num_demo_participants=1,
         app_sequence=['complex_form_layout'],
     ),
@@ -235,6 +233,12 @@ SESSION_CONFIGS = [
         app_sequence=['pay_random_round'],
     ),
     dict(
+        name='persist_raw',
+        display_name="Persist raw HTML formEle inputs on reload (sliders, checkboxes, etc).",
+        app_sequence=['persist_raw'],
+        num_demo_participants=1,
+    ),
+    dict(
         name='practice_rounds',
         display_name="Practice rounds",
         app_sequence=['practice_rounds'],
@@ -254,7 +258,7 @@ SESSION_CONFIGS = [
     ),
     dict(
         name='quiz_with_explanation',
-        display_name="Quiz + post-quiz explanation. Re-display the previous page's form as read-only, with answers/explanation.",
+        display_name="Quiz + post-quiz explanation. Re-display the previous page's formEle as read-only, with answers/explanation.",
         num_demo_participants=1,
         app_sequence=['quiz_with_explanation'],
     ),
@@ -305,7 +309,7 @@ SESSION_CONFIGS = [
     ),
     dict(
         name='rank_widget',
-        display_name="Rank/reorder form widget",
+        display_name="Rank/reorder formEle widget",
         num_demo_participants=1,
         app_sequence=['rank_widget'],
     ),
@@ -356,12 +360,6 @@ SESSION_CONFIGS = [
         display_name="Slider that changes an image (e.g. happy to sad scale)",
         num_demo_participants=1,
         app_sequence=['slider_graphic'],
-    ),
-    dict(
-        name='slider_checkbox_reloadable',
-        display_name="Sliders and checkboxes that don't get wiped out on form reload.",
-        app_sequence=['slider_checkbox_reloadable'],
-        num_demo_participants=1,
     ),
     dict(
         name='supergames',

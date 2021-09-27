@@ -2,7 +2,7 @@ from otree.api import *
 
 
 doc = """
-Quiz with explanation. Re-display the previous page's form as read-only, with answers/explanation.
+Quiz with explanation. Re-display the previous page's formEle as read-only, with answers/explanation.
 """
 
 
@@ -10,7 +10,7 @@ class Constants(BaseConstants):
     name_in_url = 'quiz_with_explanation'
     players_per_group = None
     num_rounds = 1
-    form_template = __name__ + '/form.html'
+    form_template = __name__ + '/formEle.html'
 
 
 def get_quiz_data():

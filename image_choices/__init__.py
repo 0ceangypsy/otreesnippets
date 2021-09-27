@@ -40,6 +40,10 @@ class MyPage(Page):
     form_model = 'player'
     form_fields = ['img_choice']
 
+    @staticmethod
+    def error_message(player: Player, values):
+        return 'aa'
+
 
 class ResultsWaitPage(WaitPage):
     pass
