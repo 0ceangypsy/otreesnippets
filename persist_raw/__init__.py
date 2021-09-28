@@ -43,8 +43,4 @@ class MyPage(Page):
     ]
 
 
-class Results(Page):
-    pass
-
-
-page_sequence = [MyPage, Results]
+page_sequence = [MyPage]

@@ -35,8 +35,5 @@ class MyPage(Page):
     form_fields = ['f1', 'f2']
 
 
-class Results(Page):
-    pass
 
-
-page_sequence = [MyPage, Results]
+page_sequence = [MyPage]

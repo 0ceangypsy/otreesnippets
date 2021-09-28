@@ -36,12 +36,4 @@ class MyPage(Page):
         return dict(APR=Constants.APR)
 
 
-class ResultsWaitPage(WaitPage):
-    pass
-
-
-class Results(Page):
-    pass
-
-
-page_sequence = [MyPage, ResultsWaitPage, Results]
+page_sequence = [MyPage]
