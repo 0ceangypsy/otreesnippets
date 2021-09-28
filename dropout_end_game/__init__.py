@@ -2,7 +2,7 @@ from otree.api import *
 
 
 doc = """
-Dropouts: end multiplayer game if a player drops out
+Dropout detection for multiplayer game (end the game)
 """
 
 

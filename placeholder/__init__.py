@@ -1,11 +1,6 @@
 from otree.api import *
 
 
-doc = """
-Your app description
-"""
-
-
 class Constants(BaseConstants):
     name_in_url = 'placeholder'
     players_per_group = None

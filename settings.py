@@ -11,11 +11,6 @@ SESSION_CONFIG_DEFAULTS = dict(
 
 SESSION_CONFIGS = [
     dict(
-        name='dropout_end_game',
-        num_demo_participants=2,
-        app_sequence=['dropout_end_game', 'placeholder'],
-    ),
-    dict(
         name='are_you_sure',
         display_name="""'Are you sure?' popup based on the user's input""",
         num_demo_participants=1,
@@ -56,6 +51,12 @@ SESSION_CONFIGS = [
         display_name="Calculation based on user's input",
         num_demo_participants=1,
         app_sequence=['input_calculation'],
+    ),
+    dict(
+        name='chat_from_scratch',
+        display_name="Chat implementation from scratch (easier to customize)",
+        num_demo_participants=3,
+        app_sequence=['chat_from_scratch'],
     ),
     dict(
         name='chat_with_experimenter',
@@ -107,16 +108,16 @@ SESSION_CONFIGS = [
         display_name="CSS to style timer and chat box",
     ),
     dict(
-        name='custom_chat',
-        display_name="Custom chat (not using oTree's built-in chat)",
-        num_demo_participants=3,
-        app_sequence=['custom_chat'],
-    ),
-    dict(
         name='dropout_detection',
-        display_name='Dropout detection (if user does not submit page in time)',
+        display_name='Dropout detection for single-player game',
         num_demo_participants=1,
         app_sequence=['dropout_detection'],
+    ),
+    dict(
+        name='dropout_end_game',
+        display_name="Dropout detection for multiplayer game (end game if has dropout)",
+        num_demo_participants=2,
+        app_sequence=['dropout_end_game', 'placeholder'],
     ),
     dict(
         name='experimenter_input',
@@ -386,6 +387,12 @@ SESSION_CONFIGS = [
         display_name="Timeout spanning multiple pages",
         num_demo_participants=1,
         app_sequence=['multi_page_timeout'],
+    ),
+    dict(
+        name='timer_custom',
+        display_name="Timer: replacing the default timer with your own",
+        num_demo_participants=1,
+        app_sequence=['timer_custom'],
     ),
     dict(
         name='multi_language',
