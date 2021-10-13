@@ -97,7 +97,7 @@ SESSION_CONFIGS = [
     ),
     dict(
         name='count_button_clicks',
-        display_name='Count button clicks (hidden input)',
+        display_name='Count button clicks',
         num_demo_participants=1,
         app_sequence=['count_button_clicks'],
     ),

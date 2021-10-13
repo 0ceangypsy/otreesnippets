@@ -4,29 +4,15 @@
 {{ block content }}
 
     <p>
-        This app records to the database the number of times you click the button.
+        This app records to the database the number of times you click the button
+        or the link.
     </p>
 
     <p>
-        <button type="button" onclick="buttonClicked()">Click me</button>
+        <button type="button" onclick="liveSend('clicked-button')">Click me</button>
+        <a href="https://wikipedia.org" onclick="liveSend('clicked-link')" target="_blank">Click me</a>
     </p>
 
-    <p>Number of clicks: <span id="num_clicks_feedback">0</span></p>
-
     {{ next_button }}
-
-    <input type="hidden" name="num_clicks" id="num_clicks" />
-
-    <script>
-        let numClicks = 0;
-
-        function buttonClicked() {
-            numClicks++;
-            // this stores it in the database through the formfield
-            document.getElementById('num_clicks').value = numClicks;
-            // this just displays it back to the user
-            document.getElementById('num_clicks_feedback').innerText = numClicks;
-        }
-    </script>
 
 {{ endblock }}

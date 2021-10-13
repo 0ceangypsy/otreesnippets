@@ -1,6 +1,7 @@
 from otree.api import *
 
-doc = """Count button clicks (hidden input)"""
+doc = """Count button clicks"""
+
 
 class Constants(BaseConstants):
     name_in_url = 'count_button_clicks'
@@ -17,13 +18,18 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    num_clicks = models.IntegerField()
+    button_clicks = models.IntegerField(initial=0)
+    link_clicks = models.IntegerField(initial=0)
 
 
 # PAGES
 class MyPage(Page):
-    form_model = 'player'
-    form_fields = ['num_clicks']
+    @staticmethod
+    def live_method(player: Player, data):
+        if data == 'clicked-button':
+            player.button_clicks += 1
+        if data == 'clicked-link':
+            player.link_clicks += 1
 
 
 class Results(Page):
