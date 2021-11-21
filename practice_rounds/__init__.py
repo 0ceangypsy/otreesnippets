@@ -18,11 +18,13 @@ class Subsession(BaseSubsession):
 
 
 def creating_session(subsession: Subsession):
-    if subsession.round_number == 1:
-        for ss in subsession.in_rounds(1, Constants.num_rounds):
-            ss.is_practice_round = ss.round_number <= Constants.num_practice_rounds
-            if not ss.is_practice_round:
-                ss.real_round_number = ss.round_number - Constants.num_practice_rounds
+    subsession.is_practice_round = (
+        subsession.round_number <= Constants.num_practice_rounds
+    )
+    if not subsession.is_practice_round:
+        subsession.real_round_number = (
+            subsession.round_number - Constants.num_practice_rounds
+        )
 
 
 class Group(BaseGroup):
