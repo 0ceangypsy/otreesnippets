@@ -37,17 +37,15 @@ class Player(BasePlayer):
     is_correct = models.BooleanField()
 
 
-def real_round_number(player: Player):
-    return player
-
-
 class Play(Page):
     form_model = 'player'
     form_fields = ['response']
 
     @staticmethod
     def before_next_page(player: Player, timeout_happened):
+        # the **2 is just an example used in this game (squaring a number)
         player.solution = player.round_number ** 2
+
         player.is_correct = player.response == player.solution
 
 
@@ -65,12 +63,11 @@ class Results(Page):
 
     @staticmethod
     def vars_for_template(player: Player):
-        score = sum(
-            p.is_correct
-            for p in player.in_rounds(
-                Constants.num_practice_rounds + 1, Constants.num_rounds
-            )
-        )
+        score = 0
+        for p in player.in_rounds(
+            Constants.num_practice_rounds + 1, Constants.num_rounds
+        ):
+            score += p.is_correct
         return dict(score=score)
 
 

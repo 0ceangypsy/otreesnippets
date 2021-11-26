@@ -11,9 +11,10 @@
     let inputs = document.getElementsByTagName('input');
     let totalDisplay = document.getElementById('total');
 
+
     function updateSum() {
         let total = 0;
-        for (let input of inputs) {
+        for (let field of formfields) {
             total += parseInt(input.value || 0);
         }
         totalDisplay.innerText = total;
