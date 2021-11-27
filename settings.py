@@ -11,6 +11,25 @@ SESSION_CONFIG_DEFAULTS = dict(
 
 SESSION_CONFIGS = [
     dict(
+        name='gbat_fallback_smaller_group',
+        display_name="group_by_arrival_time: fall back to a smaller group if not enough people show up",
+        num_demo_participants=4,
+        app_sequence=[
+            'gbat_fallback_smaller_group_part0',
+            'gbat_fallback_smaller_group_part1',
+        ],
+    ),
+    dict(
+        name='gbat_fallback_solo_task',
+        display_name="group_by_arrival_time: skip the multiplayer task if no other players show up",
+        num_demo_participants=2,
+        app_sequence=[
+            'gbat_fallback_solo_task_part0',
+            'gbat_fallback_solo_task_part1',
+            'gbat_fallback_solo_task_part2',
+        ],
+    ),
+    dict(
         name='are_you_sure',
         display_name="""'Are you sure?' popup based on the user's input""",
         num_demo_participants=1,
@@ -163,16 +182,6 @@ SESSION_CONFIGS = [
             'gbat_keep_same_groups_part0',
             'gbat_keep_same_groups_part1',
             'gbat_keep_same_groups_part2',
-        ],
-    ),
-    dict(
-        name='waiting_too_long',
-        display_name="group_by_arrival_time timeout (continue with solo task)",
-        num_demo_participants=2,
-        app_sequence=[
-            'waiting_too_long_part0',
-            'waiting_too_long_part1',
-            'waiting_too_long_part2',
         ],
     ),
     dict(

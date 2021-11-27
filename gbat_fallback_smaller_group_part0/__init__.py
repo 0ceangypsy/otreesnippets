@@ -2,7 +2,7 @@ from otree.api import *
 
 
 class Constants(BaseConstants):
-    name_in_url = 'waiting_too_long_part0'
+    name_in_url = 'gbat_fallback_smaller_group_part0'
     players_per_group = None
     num_rounds = 1
 
@@ -25,6 +25,7 @@ class MyPage(Page):
         participant = player.participant
 
         import time
+
         participant.wait_page_arrival = time.time()
 
 

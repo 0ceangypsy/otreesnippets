@@ -4,7 +4,7 @@ doc = """group_by_arrival_time timeout (continue with solo task)"""
 
 
 class Constants(BaseConstants):
-    name_in_url = 'waiting_too_long'
+    name_in_url = 'gbat_fallback_solo_task_part1'
     players_per_group = None
     num_rounds = 1
 
