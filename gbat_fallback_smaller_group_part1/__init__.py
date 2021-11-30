@@ -7,7 +7,7 @@ group_by_arrival_time: fall back to a smaller group if not enough people show up
 
 class Constants(BaseConstants):
     name_in_url = 'gbat_fallback_smaller_group_part1'
-    players_per_group = 4
+    players_per_group = None
     num_rounds = 1
 
 
@@ -19,32 +19,37 @@ def waiting_seconds(player):
     import time
 
     participant = player.participant
-    return time.time() - participant.wait_page_arrival
+
+    wait = int(time.time() - participant.wait_page_arrival)
+    print('Player', player.id_in_subsession, 'waiting for', wait, 'seconds')
+    return wait
 
 
-def num_waiting_longer_than(waiting_players, num_minutes):
-    count = 0
-    for p in waiting_players:
-        # FIXME: remove the .1, just for debugging
-        if waiting_seconds(p) >= num_minutes * 60:
-            count += 1
-    return count
+def ranked_waiting_seconds(waiting_players):
+    waits = [waiting_seconds(p) for p in waiting_players]
+    waits.sort(reverse=True)
+    return waits
 
 
 def group_by_arrival_time_method(subsession, waiting_players):
     print("number of players waiting:", len(waiting_players))
-    # ideally we can play in groups of 4...
+
+    # ideal case
     if len(waiting_players) >= 4:
-        print("Creating a group of 4! Ideal!")
+        print("Creating a full sized group!")
         return waiting_players[:4]
-    if num_waiting_longer_than(waiting_players, num_minutes=1) >= 3:
+
+    waits = ranked_waiting_seconds(waiting_players)
+    if len(waits) == 3 and waits[2] > 60:
         print(
-            "3 players have been waiting for a short time, so we settle for a group of 3"
+            "3 players have been waiting for longer than a minute, "
+            "so we settle for a group of 3"
         )
         return waiting_players
-    if num_waiting_longer_than(waiting_players, num_minutes=2) >= 2:
+    if len(waits) >= 2 and waits[1] > 2 * 60:
         print(
-            "2 players have been waiting for a really long time, so we group whoever is waiting"
+            "2 players have been waiting for longer than 2 minutes, "
+            "so we group whoever is available"
         )
         return waiting_players
     # etc...
@@ -55,7 +60,7 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    favorite_color = models.StringField()
+    favorite_color = models.StringField(label="What is your favorite color?")
 
 
 class GBAT(WaitPage):

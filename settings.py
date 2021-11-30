@@ -11,25 +11,6 @@ SESSION_CONFIG_DEFAULTS = dict(
 
 SESSION_CONFIGS = [
     dict(
-        name='gbat_fallback_smaller_group',
-        display_name="group_by_arrival_time: fall back to a smaller group if not enough people show up",
-        num_demo_participants=4,
-        app_sequence=[
-            'gbat_fallback_smaller_group_part0',
-            'gbat_fallback_smaller_group_part1',
-        ],
-    ),
-    dict(
-        name='gbat_fallback_solo_task',
-        display_name="group_by_arrival_time: skip the multiplayer task if no other players show up",
-        num_demo_participants=2,
-        app_sequence=[
-            'gbat_fallback_solo_task_part0',
-            'gbat_fallback_solo_task_part1',
-            'gbat_fallback_solo_task_part2',
-        ],
-    ),
-    dict(
         name='are_you_sure',
         display_name="""'Are you sure?' popup based on the user's input""",
         num_demo_participants=1,
@@ -155,6 +136,25 @@ SESSION_CONFIGS = [
         display_name="""getattr() to access numbered fields like player.num1, player.num2, ..., player.num9""",
         num_demo_participants=1,
         app_sequence=['getattr_setattr'],
+    ),
+    dict(
+        name='gbat_fallback_smaller_group',
+        display_name="group_by_arrival_time: fall back to a smaller group if not enough people show up",
+        num_demo_participants=4,
+        app_sequence=[
+            'gbat_fallback_smaller_group_part0',
+            'gbat_fallback_smaller_group_part1',
+        ],
+    ),
+    dict(
+        name='gbat_fallback_solo_task',
+        display_name="group_by_arrival_time: skip the multiplayer task if no other players show up",
+        num_demo_participants=2,
+        app_sequence=[
+            'gbat_fallback_solo_task_part0',
+            'gbat_fallback_solo_task_part1',
+            'gbat_fallback_solo_task_part2',
+        ],
     ),
     dict(
         name='gbat_treatments',
