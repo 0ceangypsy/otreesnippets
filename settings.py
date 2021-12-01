@@ -108,6 +108,12 @@ SESSION_CONFIGS = [
         display_name="CSS to style timer and chat box",
     ),
     dict(
+        name='custom_export_groups',
+        display_name="""custom_export: 1 row for each group""",
+        num_demo_participants=4,
+        app_sequence=['custom_export_groups'],
+    ),
+    dict(
         name='dropout_detection',
         display_name='Dropout detection for single-player game',
         num_demo_participants=1,

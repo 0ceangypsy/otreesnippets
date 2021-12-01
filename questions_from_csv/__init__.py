@@ -4,7 +4,7 @@ doc = """
 Read quiz questions from a CSV.
 (Also randomizes order)
 It would be much simpler to implement this using rounds (1 question per round),
-as is done in the image rating app; however, this approach with live pages
+as is done in the image rating app; however, this approach
 has faster gameplay since it's all done in 1 page, and leads to a more compact
 data export. Consider using this version if you have many questions or if speed is a high priority. 
 """
