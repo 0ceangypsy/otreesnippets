@@ -29,6 +29,8 @@ class GBATWait(WaitPage):
 
     @staticmethod
     def after_all_players_arrive(group: Group):
+        # save each participant's current group ID so it can be
+        # accessed in the next app.
         for p in group.get_players():
             participant = p.participant
             participant.past_group_id = group.id

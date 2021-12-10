@@ -31,6 +31,7 @@ class Player(BasePlayer):
 
 def vars_for_template1(player: Player):
     return dict(
+        # get the players whose ID is less than mine
         players=[
             p
             for p in player.get_others_in_group()

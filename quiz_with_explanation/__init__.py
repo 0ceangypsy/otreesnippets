@@ -58,7 +58,7 @@ class Results(Page):
     @staticmethod
     def vars_for_template(player: Player):
         fields = get_quiz_data()
-        # we add an extra key 'is_correct' to each field
+        # we add an extra entry 'is_correct' (True/False) to each field
         for d in fields:
             d['is_correct'] = getattr(player, d['name']) == d['solution']
         return dict(fields=fields, show_solutions=True)

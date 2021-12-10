@@ -18,6 +18,7 @@ class Subsession(BaseSubsession):
 
 def creating_session(subsession: Subsession):
     for p in subsession.get_players():
+        # initialize an empty dict to store how much they made in each app
         p.participant.app_payoffs = {}
 
 
@@ -47,7 +48,7 @@ class ResultsWaitPage(WaitPage):
             participant = p.participant
             potential_payoff = random.randint(100, 200)
             p.potential_payoff = potential_payoff
-            # __name__ is the name of the current app
+            # __name__ is a magic variable that contains the name of the current app
             participant.app_payoffs[__name__] = potential_payoff
 
 

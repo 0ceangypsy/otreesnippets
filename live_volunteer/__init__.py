@@ -38,19 +38,25 @@ class MyPage(Page):
     def live_method(player: Player, data):
         group = player.group
 
+        # print('data is', data)
+
         if group.has_volunteer:
             return
         if data.get('volunteer'):
             group.has_volunteer = True
+            # mark all other players as non-volunteers
             for p in player.get_others_in_group():
                 p.payoff = Constants.reward
                 p.is_volunteer = False
+            # mark myself as a volunteer
             player.is_volunteer = True
             player.payoff = Constants.reward - Constants.volunteer_cost
+            # broadcast to the group that the game is finished.
             return {0: dict(finished=True)}
 
     @staticmethod
     def error_message(player: Player, values):
+        """Prevent users from proceeding before someone has volunteered."""
         group = player.group
         if not group.has_volunteer:
             return "Can't move forward"

@@ -18,6 +18,7 @@ class Subsession(BaseSubsession):
 
 
 def creating_session(subsession: Subsession):
+    # In Python, 'a <= b' produces either True or False.
     subsession.is_practice_round = (
         subsession.round_number <= Constants.num_practice_rounds
     )

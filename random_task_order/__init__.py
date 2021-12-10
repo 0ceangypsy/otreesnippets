@@ -34,7 +34,10 @@ def creating_session(subsession: Subsession):
         for p in subsession.get_players():
             round_numbers = list(range(1, Constants.num_rounds + 1))
             random.shuffle(round_numbers)
-            p.participant.task_rounds = dict(zip(Constants.tasks, round_numbers))
+            task_rounds = dict(zip(Constants.tasks, round_numbers))
+            # print('player', p.id_in_subsession)
+            # print('task_rounds is', task_rounds)
+            p.participant.task_rounds = task_rounds
 
 
 # PAGES

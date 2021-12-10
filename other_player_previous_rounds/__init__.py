@@ -1,5 +1,8 @@
 from otree.api import *
 
+doc = """
+Showing other players' decisions from previous rounds
+"""
 
 class Constants(BaseConstants):
     name_in_url = 'other_player_previous_rounds'

@@ -44,6 +44,9 @@ class GBAT(WaitPage):
 
     @staticmethod
     def app_after_this_page(player: Player, upcoming_apps):
+        # if it's a solo group (1 player), skip this app
+        # and go to the next app (which in this case is a
+        # single-player task)
         if len(player.get_others_in_group()) == 0:
             return upcoming_apps[0]
 

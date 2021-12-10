@@ -21,6 +21,7 @@ def creating_session(subsession):
     )
     for p in subsession.get_players():
         treatment = next(treatments)
+        # print('treatment is', treatment)
         p.time_pressure = treatment[0]
         p.high_tax = treatment[1]
         p.endowment = treatment[2]

@@ -48,7 +48,7 @@ SESSION_CONFIGS = [
     ),
     dict(
         name='input_calculation',
-        display_name="Calculation based on user's input",
+        display_name="Immediate calculation so the user can see the potential result of their decision",
         num_demo_participants=1,
         app_sequence=['input_calculation'],
     ),

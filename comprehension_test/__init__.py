@@ -41,11 +41,17 @@ class MyPage(Page):
         # but if you have many similar fields, this is more efficient.
         solutions = dict(quiz1=4, quiz2='Ottawa', quiz3=2019, quiz4=False)
 
+        # error_message can return a dict whose keys are field names and whose
+        # values are error messages
         errors = {f: 'Wrong' for f in solutions if values[f] != solutions[f]}
+        # print('errors is', errors)
         if errors:
             player.num_failed_attempts += 1
             if player.num_failed_attempts >= 3:
                 player.failed_too_many = True
+                # we don't return any error here; just let the user proceed to the
+                # next page, but the next page is the 'failed' page that boots them
+                # from the experiment.
             else:
                 return errors
 

@@ -36,6 +36,8 @@ def creating_session(subsession: Subsession):
         stimuli = read_csv()
         p.num_trials = len(stimuli)
         for stim in stimuli:
+            # print('stim is', stim)
+            # ** is the Python operator to unpack the dict
             Trial.create(player=p, **stim)
 
 
@@ -88,6 +90,7 @@ class Stimuli(Page):
             # have to use str() because Javascript implicitly converts keys to strings
             trial.choice = responses[str(trial.id)]
             trial.is_correct = trial.choice == trial.solution
+            # convert True/False to 1/0
             player.num_correct += int(trial.is_correct)
         # don't need it anymore
         player.raw_responses = ''

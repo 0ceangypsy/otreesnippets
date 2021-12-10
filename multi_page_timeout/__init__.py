@@ -32,6 +32,7 @@ def get_timeout_seconds1(player: Player):
 
 
 def is_displayed1(player: Player):
+    """only returns True if there is time left."""
     return get_timeout_seconds1(player) > 0
 
 

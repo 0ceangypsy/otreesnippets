@@ -1,5 +1,4 @@
 from otree.api import *
-from pprint import pprint
 
 
 doc = """
@@ -59,7 +58,7 @@ def creating_session(subsession: Subsession):
             session.matrices = matrices
     this_round_matrix = session.matrices[subsession.round_number - 1]
     subsession.set_group_matrix(this_round_matrix)
-    pprint(this_round_matrix)
+    # print('this_round_matrix', this_round_matrix)
 
 
 # PAGES

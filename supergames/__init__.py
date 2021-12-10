@@ -22,6 +22,7 @@ class Constants(BaseConstants):
     # first supergame lasts 2 rounds, second supergame lasts 3 rounds, etc...
     rounds_per_sg = [2, 3, 4, 5]
     sg_ends = cumsum(rounds_per_sg)
+    # print('sg_ends is', sg_ends)
     num_rounds = sum(rounds_per_sg)
 
 
@@ -35,9 +36,11 @@ def creating_session(subsession: Subsession):
     if subsession.round_number == 1:
         sg = 1
         period = 1
+        # loop over all subsessions
         for ss in subsession.in_rounds(1, Constants.num_rounds):
             ss.sg = sg
             ss.period = period
+            # 'in' gives you a bool. for example: 5 in [1, 5, 6] # => True
             is_last_period = ss.round_number in Constants.sg_ends
             ss.is_last_period = is_last_period
             if is_last_period:

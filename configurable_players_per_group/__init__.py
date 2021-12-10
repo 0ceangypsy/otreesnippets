@@ -27,6 +27,7 @@ def creating_session(subsession: Subsession):
     matrix = []
     for i in range(0, len(players), ppg):
         matrix.append(players[i : i + ppg])
+    # print('matrix is', matrix)
     subsession.set_group_matrix(matrix)
 
 

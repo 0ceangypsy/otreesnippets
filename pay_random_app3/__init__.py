@@ -30,6 +30,9 @@ class PayRandomApp(Page):
         import random
 
         participant = player.participant
+
+        # print('participant.app_payoffs is', participant.app_payoffs)
+
         apps = [
             'pay_random_app1',
             'pay_random_app2',

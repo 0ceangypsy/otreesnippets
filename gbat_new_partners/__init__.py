@@ -26,13 +26,18 @@ def group_by_arrival_time_method(subsession: Subsession, waiting_players):
 
     import itertools
 
+    # this generates all possible pairs of waiting players
+    # and checks if the group would be valid.
     for possible_group in itertools.combinations(waiting_players, 2):
         # use a set, so that we can easily compare even if order is different
         # e.g. {1, 2} == {2, 1}
         pair_ids = set(p.id_in_subsession for p in possible_group)
+        # if this pair of players has not already been played
         if pair_ids not in session.past_groups:
             # mark this group as used, so we don't repeat it in the next round.
             session.past_groups.append(pair_ids)
+            # in this function,
+            # 'return' means we are creating a new group with this selected pair
             return possible_group
 
 

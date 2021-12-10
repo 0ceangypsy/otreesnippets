@@ -26,9 +26,11 @@ def creating_session(subsession: Subsession):
     for i in range(len(players)):
         row = rows[i]
         player = players[i]
+        # CSV contains all data in string form, so we need to convert
+        # to the correct data type, e.g. '1' -> 1 -> True.
         player.time_pressure = bool(int(row['time_pressure']))
-        player.endowment = cu(row['endowment'])
         player.high_tax = bool(int(row['high_tax']))
+        player.endowment = cu(row['endowment'])
         player.color = row['color']
 
 

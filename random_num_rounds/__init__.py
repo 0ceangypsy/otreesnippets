@@ -30,6 +30,11 @@ class Player(BasePlayer):
 class MyPage(Page):
     @staticmethod
     def is_displayed(player: Player):
+        """
+        Skip this page if the round number has exceeded the participant's designated
+        number of rounds.
+        """
+
         participant = player.participant
 
         return player.round_number < participant.num_rounds

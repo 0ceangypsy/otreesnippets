@@ -38,7 +38,6 @@ class Intro(Page):
 class ExpInput(Page):
     """
     It should be a live page so that you can notify all other players to advance
-    also, prevents everyone from moving forward prematurely
     """
 
     @staticmethod
@@ -50,6 +49,7 @@ class ExpInput(Page):
                 return {player.id_in_group: dict(error="Incorrect password")}
             group.exp_input = data['exp_input']
             group.has_exp_input = True
+        # broadcast to the whole group whether the game is finished
         return {0: dict(finished=group.has_exp_input)}
 
     @staticmethod

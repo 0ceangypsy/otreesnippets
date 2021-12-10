@@ -21,7 +21,7 @@ def waiting_seconds(player):
     participant = player.participant
 
     wait = int(time.time() - participant.wait_page_arrival)
-    print('Player', player.id_in_subsession, 'waiting for', wait, 'seconds')
+    # print('Player', player.id_in_subsession, 'waiting for', wait, 'seconds')
     return wait
 
 
@@ -32,7 +32,7 @@ def ranked_waiting_seconds(waiting_players):
 
 
 def group_by_arrival_time_method(subsession, waiting_players):
-    print("number of players waiting:", len(waiting_players))
+    # print("number of players waiting:", len(waiting_players))
 
     # ideal case
     if len(waiting_players) >= 4:
@@ -52,7 +52,8 @@ def group_by_arrival_time_method(subsession, waiting_players):
             "so we group whoever is available"
         )
         return waiting_players
-    # etc...
+    # you can add your own additional rules based on waiting time and
+    # number of waiting players
 
 
 class Group(BaseGroup):

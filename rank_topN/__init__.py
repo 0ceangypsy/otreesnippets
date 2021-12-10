@@ -38,6 +38,8 @@ class MyPage(Page):
     @staticmethod
     def error_message(player: Player, values):
         choices = [values['rank1'], values['rank2'], values['rank3']]
+        # set() gives you distinct elements. if a list's length is different from its
+        # set length, that means it must have duplicates.
         if len(set(choices)) != len(choices):
             return "You cannot choose the same item twice"
 

@@ -38,6 +38,7 @@ class MyPage(Page):
 
         participant = player.participant
 
+        # if it's the last round
         if player.round_number == Constants.num_rounds:
             random_round = random.randint(1, Constants.num_rounds)
             participant.selected_round = random_round

@@ -18,6 +18,9 @@
         let amount = parseFloat(amountInput.value);
         let numYears = parseInt(numYearsInput.value);
 
+        // isNaN is the javascript function that checks whether the value is a valid
+        // number. need to check this because the field might be empty or
+        // the user might have typed something other than a number.
         if (isNaN(amount) || isNaN(numYears)) {
             projectionEle.innerText = '';
         } else {

@@ -4,6 +4,9 @@ from otree.api import *
 doc = """
 Question that lets you select multiple options
 (multi-select, multiple choice / multiple answer)
+
+The difference is that this one lets you customize the label of each checkbox,
+and requires at least 1 to be selected.
 """
 
 
@@ -44,6 +47,7 @@ class MyPage(Page):
 
     @staticmethod
     def error_message(player: Player, values):
+        # print('values is', values)
         num_selected = 0
         for lang in Constants.languages:
             if values[lang['name']]:
