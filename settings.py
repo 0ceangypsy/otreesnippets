@@ -275,10 +275,16 @@ SESSION_CONFIGS = [
         app_sequence=['progress_bar'],
     ),
     dict(
-        name='questions_from_csv',
-        display_name='Quiz questions loaded from CSV spreadsheet + custom_export',
+        name='questions_from_csv_simple',
+        display_name='Quiz questions loaded from CSV spreadsheet (simple version)',
         num_demo_participants=2,
-        app_sequence=['questions_from_csv'],
+        app_sequence=['questions_from_csv_simple'],
+    ),
+    dict(
+        name='questions_from_csv',
+        display_name='Quiz questions loaded from CSV spreadsheet (complex version)',
+        num_demo_participants=2,
+        app_sequence=['questions_from_csv_complex'],
     ),
     dict(
         name='quiz_with_explanation',
@@ -466,6 +472,7 @@ SESSION_FIELDS = [
 ]
 
 PARTICIPANT_FIELDS = [
+    'app_payoffs',
     'expiry',
     'finished_rounds',
     'language',
@@ -473,9 +480,9 @@ PARTICIPANT_FIELDS = [
     'partner_history',
     'past_group_id',
     'progress',
+    'quiz_num_correct',
     'selected_round',
     'task_rounds',
-    'wait_page_arrival',
     'time_pressure',
-    'app_payoffs',
+    'wait_page_arrival',
 ]

@@ -1,7 +1,7 @@
 from appcopy1 import *
 
 
-class C(Constants):
+class C(C):
     NAME_IN_URL = 'appcopy2'
 
 

@@ -1,17 +1,17 @@
 from otree.api import *
 
 doc = """
-Read quiz questions from a CSV.
-(Also randomizes order)
+Read quiz questions from a CSV (complex version).
+See also the 'simple' version.
 It would be much simpler to implement this using rounds (1 question per round),
-as is done in the image rating app; however, this approach
+as is done in the 'simple' version; however, this approach
 has faster gameplay since it's all done in 1 page, and leads to a more compact
 data export. Consider using this version if you have many questions or if speed is a high priority. 
 """
 
 
 class C(BaseConstants):
-    NAME_IN_URL = 'questions_from_csv'
+    NAME_IN_URL = 'questions_from_csv_complex'
     PLAYERS_PER_GROUP = None
     NUM_ROUNDS = 1
 
