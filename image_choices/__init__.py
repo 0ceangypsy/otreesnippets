@@ -10,10 +10,10 @@ def make_image_data(image_names):
     return [dict(name=name, path='shapes/{}'.format(name)) for name in image_names]
 
 
-class Constants(BaseConstants):
-    name_in_url = 'image_choices'
-    players_per_group = None
-    num_rounds = 1
+class C(BaseConstants):
+    NAME_IN_URL = 'image_choices'
+    PLAYERS_PER_GROUP = None
+    NUM_ROUNDS = 1
 
 
 class Subsession(BaseSubsession):

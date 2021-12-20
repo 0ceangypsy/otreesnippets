@@ -6,10 +6,10 @@ Your app description
 """
 
 
-class Constants(BaseConstants):
-    name_in_url = 'gbat_keep_same_groups_part0'
-    players_per_group = None
-    num_rounds = 1
+class C(BaseConstants):
+    NAME_IN_URL = 'gbat_keep_same_groups_part0'
+    PLAYERS_PER_GROUP = None
+    NUM_ROUNDS = 1
 
 
 class Subsession(BaseSubsession):

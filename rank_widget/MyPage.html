@@ -5,7 +5,7 @@ Rank your favorite drinks
 
 
 <ul id="items" class="list-group list-group-numbered" style="cursor: move">
-    {{ for choice in Constants.choices }}
+    {{ for choice in C.CHOICES }}
     <li data-id="{{ choice }}" class="list-group-item">{{ choice }}</li>
     {{ endfor }}
 </ul>

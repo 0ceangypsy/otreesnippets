@@ -1,11 +1,11 @@
 {{ block content }}
     <ul>
-        <li>This is a sequential game with {{ Constants.players_per_group }} players.</li>
+        <li>This is a sequential game with {{ C.PLAYERS_PER_GROUP }} players.</li>
         <li>You are player {{ player.id_in_group }}.</li>
         <li>Each player will see the previous player's choices</li>
     </ul>
 
-    {{ include Constants.table_template }}
+    {{ include C.TABLE_TEMPLATE }}
 
     {{ formfields }}
     {{ next_button }}

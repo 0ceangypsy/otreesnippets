@@ -6,12 +6,12 @@ Live volunteer's dilemma (first player to click moves everyone forward).
 """
 
 
-class Constants(BaseConstants):
-    name_in_url = 'live_volunteer'
-    players_per_group = 3
-    num_rounds = 1
-    reward = cu(1000)
-    volunteer_cost = cu(500)
+class C(BaseConstants):
+    NAME_IN_URL = 'live_volunteer'
+    PLAYERS_PER_GROUP = 3
+    NUM_ROUNDS = 1
+    REWARD = cu(1000)
+    VOLUNTEER_COST = cu(500)
 
 
 class Subsession(BaseSubsession):
@@ -46,11 +46,11 @@ class MyPage(Page):
             group.has_volunteer = True
             # mark all other players as non-volunteers
             for p in player.get_others_in_group():
-                p.payoff = Constants.reward
+                p.payoff = C.REWARD
                 p.is_volunteer = False
             # mark myself as a volunteer
             player.is_volunteer = True
-            player.payoff = Constants.reward - Constants.volunteer_cost
+            player.payoff = C.REWARD - C.VOLUNTEER_COST
             # broadcast to the group that the game is finished.
             return {0: dict(finished=True)}
 

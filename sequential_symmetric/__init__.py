@@ -6,13 +6,13 @@ Sequential / cascade game (symmetric)
 """
 
 
-class Constants(BaseConstants):
-    name_in_url = 'sequential_symmetric'
-    players_per_group = 3
-    num_rounds = 1
-    main_template = __name__ + '/Decide.html'
-    table_template = __name__ + '/table.html'
-    form_fields = ['decision']
+class C(BaseConstants):
+    NAME_IN_URL = 'sequential_symmetric'
+    PLAYERS_PER_GROUP = 3
+    NUM_ROUNDS = 1
+    MAIN_TEMPLATE = __name__ + '/Decide.html'
+    TABLE_TEMPLATE = __name__ + '/table.html'
+    FORM_FIELDS = ['decision']
 
 
 class Subsession(BaseSubsession):
@@ -43,8 +43,8 @@ def vars_for_template1(player: Player):
 # PAGES
 class P1(Page):
     form_model = 'player'
-    form_fields = Constants.form_fields
-    template_name = Constants.main_template
+    form_fields = C.FORM_FIELDS
+    template_name = C.MAIN_TEMPLATE
 
     @staticmethod
     def is_displayed(player: Player):
@@ -59,8 +59,8 @@ class WaitPage1(WaitPage):
 
 class P2(Page):
     form_model = 'player'
-    form_fields = Constants.form_fields
-    template_name = Constants.main_template
+    form_fields = C.FORM_FIELDS
+    template_name = C.MAIN_TEMPLATE
 
     @staticmethod
     def is_displayed(player: Player):
@@ -75,8 +75,8 @@ class WaitPage2(WaitPage):
 
 class P3(Page):
     form_model = 'player'
-    form_fields = Constants.form_fields
-    template_name = Constants.main_template
+    form_fields = C.FORM_FIELDS
+    template_name = C.MAIN_TEMPLATE
 
     @staticmethod
     def is_displayed(player: Player):

@@ -1,7 +1,7 @@
 {{ block content }}
 
 <p>What languages do you speak? Select all that apply.</p>
-{{ for field in Constants.languages }}
+{{ for field in C.LANGUAGES }}
 <label>
     <input type="checkbox" name="{{ field }}" value="1">
     {{ field }}

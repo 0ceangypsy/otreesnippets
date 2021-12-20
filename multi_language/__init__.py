@@ -31,10 +31,10 @@ which_language = {'en': False, 'de': False, 'zh': False}  # noqa
 which_language[LANGUAGE_CODE[:2]] = True
 
 
-class Constants(BaseConstants):
-    name_in_url = 'bret'
-    num_rounds = 1
-    players_per_group = None
+class C(BaseConstants):
+    NAME_IN_URL = 'bret'
+    NUM_ROUNDS = 1
+    PLAYERS_PER_GROUP = None
 
 
 class Subsession(BaseSubsession):

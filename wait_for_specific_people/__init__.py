@@ -6,10 +6,10 @@ Wait only for specific people
 """
 
 
-class Constants(BaseConstants):
-    name_in_url = 'wait_for_specific_people'
-    players_per_group = None
-    num_rounds = 1
+class C(BaseConstants):
+    NAME_IN_URL = 'wait_for_specific_people'
+    PLAYERS_PER_GROUP = None
+    NUM_ROUNDS = 1
 
 
 class Subsession(BaseSubsession):

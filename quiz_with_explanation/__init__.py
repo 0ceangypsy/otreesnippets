@@ -6,11 +6,11 @@ Quiz with explanation. Re-display the previous page's form as read-only, with an
 """
 
 
-class Constants(BaseConstants):
-    name_in_url = 'quiz_with_explanation'
-    players_per_group = None
-    num_rounds = 1
-    form_template = __name__ + '/form.html'
+class C(BaseConstants):
+    NAME_IN_URL = 'quiz_with_explanation'
+    PLAYERS_PER_GROUP = None
+    NUM_ROUNDS = 1
+    FORM_TEMPLATE = __name__ + '/form.html'
 
 
 def get_quiz_data():

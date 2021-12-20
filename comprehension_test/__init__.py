@@ -5,10 +5,10 @@ Comprehension test. If the user fails too many times, they exit.
 """
 
 
-class Constants(BaseConstants):
-    name_in_url = 'comprehension_test'
-    players_per_group = None
-    num_rounds = 1
+class C(BaseConstants):
+    NAME_IN_URL = 'comprehension_test'
+    PLAYERS_PER_GROUP = None
+    NUM_ROUNDS = 1
 
 
 class Subsession(BaseSubsession):

@@ -26,11 +26,11 @@ advance exactly how many you will have.
 """
 
 
-class Constants(BaseConstants):
-    name_in_url = 'getattr_setattr'
-    players_per_group = None
-    num_rounds = 1
-    numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+class C(BaseConstants):
+    NAME_IN_URL = 'getattr_setattr'
+    PLAYERS_PER_GROUP = None
+    NUM_ROUNDS = 1
+    NUMBERS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 
 class Subsession(BaseSubsession):
@@ -54,13 +54,13 @@ class Player(BasePlayer):
     num10 = models.IntegerField()
 
     chosen_number = models.IntegerField(
-        choices=Constants.numbers, label="Choose a random number from 1 to 10"
+        choices=C.NUMBERS, label="Choose a random number from 1 to 10"
     )
 
 
 class Page1(Page):
     form_model = 'player'
-    form_fields = ['num{}'.format(n) for n in Constants.numbers]
+    form_fields = ['num{}'.format(n) for n in C.NUMBERS]
 
 
 class Page2(Page):

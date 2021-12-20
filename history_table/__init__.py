@@ -2,10 +2,10 @@ from otree.api import *
 
 doc = """History table"""
 
-class Constants(BaseConstants):
-    name_in_url = 'history_table'
-    players_per_group = None
-    num_rounds = 10
+class C(BaseConstants):
+    NAME_IN_URL = 'history_table'
+    PLAYERS_PER_GROUP = None
+    NUM_ROUNDS = 10
 
 
 class Subsession(BaseSubsession):

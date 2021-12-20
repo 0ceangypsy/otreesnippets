@@ -6,10 +6,10 @@ group by arrival time, but in each round assign to a new partner.
 """
 
 
-class Constants(BaseConstants):
-    name_in_url = 'gbat_new_partners'
-    players_per_group = None
-    num_rounds = 3
+class C(BaseConstants):
+    NAME_IN_URL = 'gbat_new_partners'
+    PLAYERS_PER_GROUP = None
+    NUM_ROUNDS = 3
 
 
 class Subsession(BaseSubsession):

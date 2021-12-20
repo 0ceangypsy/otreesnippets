@@ -10,10 +10,10 @@ data export. Consider using this version if you have many questions or if speed 
 """
 
 
-class Constants(BaseConstants):
-    name_in_url = 'questions_from_csv'
-    players_per_group = None
-    num_rounds = 1
+class C(BaseConstants):
+    NAME_IN_URL = 'questions_from_csv'
+    PLAYERS_PER_GROUP = None
+    NUM_ROUNDS = 1
 
 
 def read_csv():

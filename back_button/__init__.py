@@ -4,10 +4,10 @@ doc = """
 Back button for multiple instructions pages
 """
 
-class Constants(BaseConstants):
-    name_in_url = 'back_button'
-    players_per_group = None
-    num_rounds = 1
+class C(BaseConstants):
+    NAME_IN_URL = 'back_button'
+    PLAYERS_PER_GROUP = None
+    NUM_ROUNDS = 1
 
 
 class Subsession(BaseSubsession):

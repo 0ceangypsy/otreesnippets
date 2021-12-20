@@ -7,11 +7,11 @@ for more examples.
 """
 
 
-class Constants(BaseConstants):
-    name_in_url = 'rank_widget'
-    players_per_group = None
-    num_rounds = 1
-    choices = ['Martini', 'Margarita', 'White Russian', 'Pina Colada', 'Gin & Tonic']
+class C(BaseConstants):
+    NAME_IN_URL = 'rank_widget'
+    PLAYERS_PER_GROUP = None
+    NUM_ROUNDS = 1
+    CHOICES = ['Martini', 'Margarita', 'White Russian', 'Pina Colada', 'Gin & Tonic']
 
 
 class Subsession(BaseSubsession):

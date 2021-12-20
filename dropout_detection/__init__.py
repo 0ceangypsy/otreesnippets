@@ -6,10 +6,10 @@ Dropout detection (if user does not submit page in time)
 """
 
 
-class Constants(BaseConstants):
-    name_in_url = 'detect_dropout'
-    players_per_group = None
-    num_rounds = 1
+class C(BaseConstants):
+    NAME_IN_URL = 'detect_dropout'
+    PLAYERS_PER_GROUP = None
+    NUM_ROUNDS = 1
 
 
 class Subsession(BaseSubsession):

@@ -4,12 +4,12 @@ from otree.api import *
 doc = """Practice rounds"""
 
 
-class Constants(BaseConstants):
-    name_in_url = 'practice_rounds'
-    players_per_group = None
-    num_practice_rounds = 2
-    num_real_rounds = 10
-    num_rounds = num_practice_rounds + num_real_rounds
+class C(BaseConstants):
+    NAME_IN_URL = 'practice_rounds'
+    PLAYERS_PER_GROUP = None
+    NUM_PRACTICE_ROUNDS = 2
+    NUM_REAL_ROUNDS = 10
+    NUM_ROUNDS = NUM_PRACTICE_ROUNDS + NUM_REAL_ROUNDS
 
 
 class Subsession(BaseSubsession):
@@ -20,11 +20,11 @@ class Subsession(BaseSubsession):
 def creating_session(subsession: Subsession):
     # In Python, 'a <= b' produces either True or False.
     subsession.is_practice_round = (
-        subsession.round_number <= Constants.num_practice_rounds
+        subsession.round_number <= C.NUM_PRACTICE_ROUNDS
     )
     if not subsession.is_practice_round:
         subsession.real_round_number = (
-            subsession.round_number - Constants.num_practice_rounds
+            subsession.round_number - C.NUM_PRACTICE_ROUNDS
         )
 
 
@@ -60,13 +60,13 @@ class PracticeFeedback(Page):
 class Results(Page):
     @staticmethod
     def is_displayed(player: Player):
-        return player.round_number == Constants.num_rounds
+        return player.round_number == C.NUM_ROUNDS
 
     @staticmethod
     def vars_for_template(player: Player):
         score = 0
         for p in player.in_rounds(
-            Constants.num_practice_rounds + 1, Constants.num_rounds
+            C.NUM_PRACTICE_ROUNDS + 1, C.NUM_ROUNDS
         ):
             score += p.is_correct
         return dict(score=score)

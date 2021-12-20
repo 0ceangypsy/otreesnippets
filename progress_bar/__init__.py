@@ -6,11 +6,11 @@ All you need is a participant field called 'progress' then keep adding 1 to it.
 """
 
 
-class Constants(BaseConstants):
-    name_in_url = 'progress_bar'
-    players_per_group = None
-    num_rounds = 5
-    progress_template = __name__ + '/progress.html'
+class C(BaseConstants):
+    NAME_IN_URL = 'progress_bar'
+    PLAYERS_PER_GROUP = None
+    NUM_ROUNDS = 5
+    PROGRESS_TEMPLATE = __name__ + '/progress.html'
 
 
 class Subsession(BaseSubsession):

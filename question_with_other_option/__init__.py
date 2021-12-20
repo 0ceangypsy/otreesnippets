@@ -5,10 +5,10 @@ Menu with an 'other' option that lets you type in a valueInput manually
 """
 
 
-class Constants(BaseConstants):
-    name_in_url = 'question_with_other_option'
-    players_per_group = None
-    num_rounds = 1
+class C(BaseConstants):
+    NAME_IN_URL = 'question_with_other_option'
+    PLAYERS_PER_GROUP = None
+    NUM_ROUNDS = 1
 
 
 class Subsession(BaseSubsession):

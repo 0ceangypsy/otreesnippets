@@ -6,11 +6,11 @@ Ranking your top N choices from a list of options.
 """
 
 
-class Constants(BaseConstants):
-    name_in_url = 'rank_topN'
-    players_per_group = None
-    num_rounds = 1
-    choices = ['Martini', 'Margarita', 'White Russian', 'Pina Colada', 'Gin & Tonic']
+class C(BaseConstants):
+    NAME_IN_URL = 'rank_topN'
+    PLAYERS_PER_GROUP = None
+    NUM_ROUNDS = 1
+    CHOICES = ['Martini', 'Margarita', 'White Russian', 'Pina Colada', 'Gin & Tonic']
 
 
 class Subsession(BaseSubsession):
@@ -22,7 +22,7 @@ class Group(BaseGroup):
 
 
 def make_rank_field(label):
-    return models.StringField(choices=Constants.choices, label=label)
+    return models.StringField(choices=C.CHOICES, label=label)
 
 
 class Player(BasePlayer):

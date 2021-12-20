@@ -6,11 +6,11 @@ Sequential game (asymmetric)
 """
 
 
-class Constants(BaseConstants):
-    name_in_url = 'sequential'
-    players_per_group = 3
-    num_rounds = 1
-    main_template = __name__ + '/Decide.html'
+class C(BaseConstants):
+    NAME_IN_URL = 'sequential'
+    PLAYERS_PER_GROUP = 3
+    NUM_ROUNDS = 1
+    MAIN_TEMPLATE = __name__ + '/Decide.html'
 
 
 class Subsession(BaseSubsession):
@@ -43,7 +43,7 @@ class Player(BasePlayer):
 class P1(Page):
     form_model = 'group'
     form_fields = ['mixer']
-    template_name = Constants.main_template
+    template_name = C.MAIN_TEMPLATE
 
     @staticmethod
     def is_displayed(player: Player):
@@ -57,7 +57,7 @@ class WaitPage1(WaitPage):
 class P2(Page):
     form_model = 'group'
     form_fields = ['liqueur']
-    template_name = Constants.main_template
+    template_name = C.MAIN_TEMPLATE
 
     @staticmethod
     def is_displayed(player: Player):
@@ -71,7 +71,7 @@ class WaitPage2(WaitPage):
 class P3(Page):
     form_model = 'group'
     form_fields = ['spirit']
-    template_name = Constants.main_template
+    template_name = C.MAIN_TEMPLATE
 
     @staticmethod
     def is_displayed(player: Player):

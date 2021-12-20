@@ -1,10 +1,10 @@
 from otree.api import *
 
 
-class Constants(BaseConstants):
-    name_in_url = 'random_question_order'
-    players_per_group = None
-    num_rounds = 1
+class C(BaseConstants):
+    NAME_IN_URL = 'random_question_order'
+    PLAYERS_PER_GROUP = None
+    NUM_ROUNDS = 1
 
 
 class Subsession(BaseSubsession):

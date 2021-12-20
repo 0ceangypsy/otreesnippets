@@ -3,10 +3,10 @@ from otree.api import *
 doc = """group_by_arrival_time timeout (continue with solo task)"""
 
 
-class Constants(BaseConstants):
-    name_in_url = 'gbat_fallback_solo_task_part1'
-    players_per_group = None
-    num_rounds = 1
+class C(BaseConstants):
+    NAME_IN_URL = 'gbat_fallback_solo_task_part1'
+    PLAYERS_PER_GROUP = None
+    NUM_ROUNDS = 1
 
 
 class Subsession(BaseSubsession):

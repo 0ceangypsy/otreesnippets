@@ -3,10 +3,10 @@ from otree.api import *
 doc = """Randomize multiple factors in a balanced way"""
 
 
-class Constants(BaseConstants):
-    name_in_url = 'randomize_cross_product'
-    players_per_group = None
-    num_rounds = 1
+class C(BaseConstants):
+    NAME_IN_URL = 'randomize_cross_product'
+    PLAYERS_PER_GROUP = None
+    NUM_ROUNDS = 1
 
 
 class Subsession(BaseSubsession):

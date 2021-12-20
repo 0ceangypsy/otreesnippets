@@ -14,10 +14,10 @@ Instead, you need to assign treatments in after_all_players_arrive.
 """
 
 
-class Constants(BaseConstants):
-    name_in_url = 'gbat_treatments'
-    players_per_group = 2
-    num_rounds = 1
+class C(BaseConstants):
+    NAME_IN_URL = 'gbat_treatments'
+    PLAYERS_PER_GROUP = 2
+    NUM_ROUNDS = 1
 
 
 class Subsession(BaseSubsession):

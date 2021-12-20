@@ -5,11 +5,11 @@ Timeout spanning multiple pages
 """
 
 
-class Constants(BaseConstants):
-    name_in_url = 'multi_page_timeout'
-    players_per_group = None
-    num_rounds = 1
-    timer_text = "Time to complete this section:"
+class C(BaseConstants):
+    NAME_IN_URL = 'multi_page_timeout'
+    PLAYERS_PER_GROUP = None
+    NUM_ROUNDS = 1
+    TIMER_TEXT = "Time to complete this section:"
 
 
 class Subsession(BaseSubsession):
@@ -48,18 +48,18 @@ class Intro(Page):
 class Page1(Page):
     is_displayed = is_displayed1
     get_timeout_seconds = get_timeout_seconds1
-    timer_text = Constants.timer_text
+    timer_text = C.TIMER_TEXT
 
 
 class Page2(Page):
     is_displayed = is_displayed1
     get_timeout_seconds = get_timeout_seconds1
-    timer_text = Constants.timer_text
+    timer_text = C.TIMER_TEXT
 
 
 class Page3(Page):
     is_displayed = is_displayed1
-    timer_text = Constants.timer_text
+    timer_text = C.TIMER_TEXT
     get_timeout_seconds = get_timeout_seconds1
 
 

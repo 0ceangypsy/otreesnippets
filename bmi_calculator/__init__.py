@@ -6,10 +6,10 @@ Basic single-player game (BMI calculator)
 """
 
 
-class Constants(BaseConstants):
-    name_in_url = 'bmi_calculator'
-    players_per_group = None
-    num_rounds = 1
+class C(BaseConstants):
+    NAME_IN_URL = 'bmi_calculator'
+    PLAYERS_PER_GROUP = None
+    NUM_ROUNDS = 1
 
 
 class Subsession(BaseSubsession):

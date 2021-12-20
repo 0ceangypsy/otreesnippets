@@ -1,8 +1,8 @@
 from appcopy1 import *
 
 
-class Constants(Constants):
-    name_in_url = 'appcopy2'
+class C(Constants):
+    NAME_IN_URL = 'appcopy2'
 
 
 # need to copy/paste Subsession/Group/Player classes from appcopy1

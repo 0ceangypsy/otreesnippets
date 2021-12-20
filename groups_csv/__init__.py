@@ -23,10 +23,10 @@ def make_group(comma_delim_string):
     return [int(x) for x in comma_delim_string.split(',')]
 
 
-class Constants(BaseConstants):
-    name_in_url = 'groups_csv'
-    players_per_group = None
-    num_rounds = 5
+class C(BaseConstants):
+    NAME_IN_URL = 'groups_csv'
+    PLAYERS_PER_GROUP = None
+    NUM_ROUNDS = 5
 
 
 class Subsession(BaseSubsession):

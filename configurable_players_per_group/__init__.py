@@ -7,13 +7,13 @@ See here: https://otree.readthedocs.io/en/latest/treatments.html#configure-sessi
 """
 
 
-class Constants(BaseConstants):
-    name_in_url = 'configurable_players_per_group'
+class C(BaseConstants):
+    NAME_IN_URL = 'configurable_players_per_group'
     # Since Constants does not have access to the session config,
     # (it is loaded when the server starts, rather than for each session)
     # we set the groups manually inside creating_session.
-    players_per_group = None
-    num_rounds = 1
+    PLAYERS_PER_GROUP = None
+    NUM_ROUNDS = 1
 
 
 class Subsession(BaseSubsession):

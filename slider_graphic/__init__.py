@@ -8,10 +8,10 @@ See the SVO example.
 """
 
 
-class Constants(BaseConstants):
-    name_in_url = 'slider_graphic'
-    players_per_group = None
-    num_rounds = 1
+class C(BaseConstants):
+    NAME_IN_URL = 'slider_graphic'
+    PLAYERS_PER_GROUP = None
+    NUM_ROUNDS = 1
 
 
 class Subsession(BaseSubsession):

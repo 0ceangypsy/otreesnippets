@@ -6,11 +6,11 @@ Select a random round for payment
 """
 
 
-class Constants(BaseConstants):
-    name_in_url = 'pay_random_round'
-    players_per_group = None
-    num_rounds = 4
-    endowment = cu(100)
+class C(BaseConstants):
+    NAME_IN_URL = 'pay_random_round'
+    PLAYERS_PER_GROUP = None
+    NUM_ROUNDS = 4
+    ENDOWMENT = cu(100)
 
 
 class Subsession(BaseSubsession):
@@ -39,17 +39,17 @@ class MyPage(Page):
         participant = player.participant
 
         # if it's the last round
-        if player.round_number == Constants.num_rounds:
-            random_round = random.randint(1, Constants.num_rounds)
+        if player.round_number == C.NUM_ROUNDS:
+            random_round = random.randint(1, C.NUM_ROUNDS)
             participant.selected_round = random_round
             player_in_selected_round = player.in_round(random_round)
-            player.payoff = Constants.endowment - player_in_selected_round.give_amount
+            player.payoff = C.ENDOWMENT - player_in_selected_round.give_amount
 
 
 class Results(Page):
     @staticmethod
     def is_displayed(player: Player):
-        return player.round_number == Constants.num_rounds
+        return player.round_number == C.NUM_ROUNDS
 
 
 page_sequence = [MyPage, Results]

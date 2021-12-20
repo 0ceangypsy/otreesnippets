@@ -6,13 +6,13 @@ Random number of rounds for multiplayer (random stopping rule)
 """
 
 
-class Constants(BaseConstants):
-    name_in_url = 'random_num_rounds_multiplayer'
-    players_per_group = None
-    # choose num_rounds high enough that the chance of
+class C(BaseConstants):
+    NAME_IN_URL = 'random_num_rounds_multiplayer'
+    PLAYERS_PER_GROUP = None
+    # choose NUM_ROUNDS high enough that the chance of
     # maxing out is negligible
-    num_rounds = 50
-    stopping_probability = 0.2
+    NUM_ROUNDS = 50
+    STOPPING_PROBABILITY = 0.2
 
 
 class Subsession(BaseSubsession):
@@ -42,7 +42,7 @@ class ResultsWaitPage(WaitPage):
     def after_all_players_arrive(group: Group):
         import random
 
-        if random.random() < Constants.stopping_probability:
+        if random.random() < C.STOPPING_PROBABILITY:
             print('ending game')
             for p in group.get_players():
                 p.participant.finished_rounds = True

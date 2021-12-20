@@ -6,11 +6,11 @@ Slider with live updating label
 """
 
 
-class Constants(BaseConstants):
-    name_in_url = 'slider_live_label'
-    players_per_group = None
-    num_rounds = 1
-    endowment = 100
+class C(BaseConstants):
+    NAME_IN_URL = 'slider_live_label'
+    PLAYERS_PER_GROUP = None
+    NUM_ROUNDS = 1
+    ENDOWMENT = 100
 
 
 class Subsession(BaseSubsession):
@@ -23,7 +23,7 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     give = models.IntegerField(
-        min=0, max=Constants.endowment, label="How much do you want to give?"
+        min=0, max=C.ENDOWMENT, label="How much do you want to give?"
     )
 
 
@@ -34,7 +34,7 @@ class MyPage(Page):
 
     @staticmethod
     def js_vars(player: Player):
-        return dict(endowment=Constants.endowment)
+        return dict(endowment=C.ENDOWMENT)
 
 
 page_sequence = [MyPage]

@@ -7,10 +7,10 @@ Also works for text/number inputs, etc.
 """
 
 
-class Constants(BaseConstants):
-    name_in_url = 'persist_raw'
-    players_per_group = None
-    num_rounds = 1
+class C(BaseConstants):
+    NAME_IN_URL = 'persist_raw'
+    PLAYERS_PER_GROUP = None
+    NUM_ROUNDS = 1
 
 
 class Subsession(BaseSubsession):

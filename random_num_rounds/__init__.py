@@ -1,10 +1,10 @@
 from otree.api import *
 
 
-class Constants(BaseConstants):
-    name_in_url = 'random_num_rounds'
-    players_per_group = None
-    num_rounds = 20
+class C(BaseConstants):
+    NAME_IN_URL = 'random_num_rounds'
+    PLAYERS_PER_GROUP = None
+    NUM_ROUNDS = 20
 
 
 class Subsession(BaseSubsession):
@@ -43,7 +43,7 @@ class MyPage(Page):
 class End(Page):
     @staticmethod
     def is_displayed(player: Player):
-        return player.round_number == Constants.num_rounds
+        return player.round_number == C.NUM_ROUNDS
 
 
 page_sequence = [MyPage, End]

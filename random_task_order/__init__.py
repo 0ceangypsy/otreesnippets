@@ -9,11 +9,11 @@ in each round we show a randomly determined subset of pages.
 """
 
 
-class Constants(BaseConstants):
-    name_in_url = 'random_task_order'
-    players_per_group = None
-    tasks = ['A', 'B', 'C']
-    num_rounds = len(tasks)
+class C(BaseConstants):
+    NAME_IN_URL = 'random_task_order'
+    PLAYERS_PER_GROUP = None
+    TASKS = ['A', 'B', 'C']
+    NUM_ROUNDS = len(TASKS)
 
 
 class Subsession(BaseSubsession):
@@ -32,9 +32,9 @@ class Player(BasePlayer):
 def creating_session(subsession: Subsession):
     if subsession.round_number == 1:
         for p in subsession.get_players():
-            round_numbers = list(range(1, Constants.num_rounds + 1))
+            round_numbers = list(range(1, C.NUM_ROUNDS + 1))
             random.shuffle(round_numbers)
-            task_rounds = dict(zip(Constants.tasks, round_numbers))
+            task_rounds = dict(zip(C.TASKS, round_numbers))
             # print('player', p.id_in_subsession)
             # print('task_rounds is', task_rounds)
             p.participant.task_rounds = task_rounds

@@ -8,14 +8,14 @@ Similar to the basic gbat_treatments app, except:
 """
 
 
-class Constants(BaseConstants):
-    name_in_url = 'gbat_treatments_complex'
-    players_per_group = 2
-    num_rounds = 3
-    # boolean works when there are 2 treatments
-    # if you have >2 treatments, change this to numbers or strings like
+class C(BaseConstants):
+    NAME_IN_URL = 'gbat_treatments_complex'
+    PLAYERS_PER_GROUP = 2
+    NUM_ROUNDS = 3
+    # boolean works when there are 2 TREATMENTS
+    # if you have >2 TREATMENTS, change this to numbers or strings like
     # [1, 2, 3] or ['A', 'B', 'C'], etc.
-    treatments = [True, False]
+    TREATMENTS = [True, False]
 
 
 class Subsession(BaseSubsession):
@@ -46,9 +46,9 @@ class GBATWaitPage(WaitPage):
         # % is the modulus operator.
         # so when num_groups_created exceeds the max list index,
         # we go back to 0, thus creating a cycle.
-        idx = subsession.num_groups_created % len(Constants.treatments)
+        idx = subsession.num_groups_created % len(C.TREATMENTS)
 
-        treatment = Constants.treatments[idx]
+        treatment = C.TREATMENTS[idx]
         for p in group.get_players():
             # since we want the treatment to persist for all rounds, we need to assign it
             # in a participant field (which persists across rounds)

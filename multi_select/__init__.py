@@ -7,11 +7,11 @@ Question that lets you select multiple options
 """
 
 
-class Constants(BaseConstants):
-    name_in_url = 'select_multiple'
-    players_per_group = None
-    num_rounds = 1
-    languages = ['english', 'german', 'french', 'spanish', 'italian', 'chinese']
+class C(BaseConstants):
+    NAME_IN_URL = 'select_multiple'
+    PLAYERS_PER_GROUP = None
+    NUM_ROUNDS = 1
+    LANGUAGES = ['english', 'german', 'french', 'spanish', 'italian', 'chinese']
 
 
 class Subsession(BaseSubsession):
@@ -34,7 +34,7 @@ class Player(BasePlayer):
 # PAGES
 class MyPage(Page):
     form_model = 'player'
-    form_fields = Constants.languages
+    form_fields = C.LANGUAGES
 
 
 page_sequence = [MyPage]

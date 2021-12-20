@@ -6,10 +6,10 @@ Reading treatment parameters from a CSV spreadsheet
 """
 
 
-class Constants(BaseConstants):
-    name_in_url = 'treatments_from_spreadsheet'
-    players_per_group = None
-    num_rounds = 1
+class C(BaseConstants):
+    NAME_IN_URL = 'treatments_from_spreadsheet'
+    PLAYERS_PER_GROUP = None
+    NUM_ROUNDS = 1
 
 
 class Subsession(BaseSubsession):

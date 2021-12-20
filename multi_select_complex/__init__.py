@@ -10,11 +10,11 @@ and requires at least 1 to be selected.
 """
 
 
-class Constants(BaseConstants):
-    name_in_url = 'multi_select_complex'
-    players_per_group = None
-    num_rounds = 1
-    languages = [
+class C(BaseConstants):
+    NAME_IN_URL = 'multi_select_complex'
+    PLAYERS_PER_GROUP = None
+    NUM_ROUNDS = 1
+    LANGUAGES = [
         dict(name='english', label="I speak English"),
         dict(name='french', label="Je parle français"),
         dict(name='spanish', label="Hablo español"),
@@ -43,13 +43,13 @@ class MyPage(Page):
 
     @staticmethod
     def get_form_fields(player: Player):
-        return [lang['name'] for lang in Constants.languages]
+        return [lang['name'] for lang in C.LANGUAGES]
 
     @staticmethod
     def error_message(player: Player, values):
         # print('values is', values)
         num_selected = 0
-        for lang in Constants.languages:
+        for lang in C.LANGUAGES:
             if values[lang['name']]:
                 num_selected += 1
         if num_selected < 1:

@@ -10,11 +10,11 @@ you can use the REST API (especially the session_vars endpoint).
 """
 
 
-class Constants(BaseConstants):
-    name_in_url = 'experimenter_input'
-    players_per_group = None
-    num_rounds = 1
-    password = 'mypass'
+class C(BaseConstants):
+    NAME_IN_URL = 'experimenter_input'
+    PLAYERS_PER_GROUP = None
+    NUM_ROUNDS = 1
+    PASSWORD = 'mypass'
 
 
 class Subsession(BaseSubsession):
@@ -45,7 +45,7 @@ class ExpInput(Page):
         group = player.group
 
         if ('exp_input' in data) and ('password' in data):
-            if data['password'] != Constants.password:
+            if data['password'] != C.PASSWORD:
                 return {player.id_in_group: dict(error="Incorrect password")}
             group.exp_input = data['exp_input']
             group.has_exp_input = True

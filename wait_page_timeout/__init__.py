@@ -2,11 +2,11 @@ from otree.api import *
 
 doc = """Timeout on a WaitPage (exit the experiment)"""
 
-class Constants(BaseConstants):
-    name_in_url = 'wait_page_timeout'
-    players_per_group = None
-    num_rounds = 1
-    timeout = 15
+class C(BaseConstants):
+    NAME_IN_URL = 'wait_page_timeout'
+    PLAYERS_PER_GROUP = None
+    NUM_ROUNDS = 1
+    TIMEOUT = 15
 
 
 class Subsession(BaseSubsession):
@@ -36,7 +36,7 @@ class MyPage(Page):
         import time
 
         # 15 seconds on wait page max
-        player.timeout = time.time() + Constants.timeout
+        player.timeout = time.time() + C.TIMEOUT
 
 
 class ResultsWaitPage(WaitPage):
@@ -44,7 +44,7 @@ class ResultsWaitPage(WaitPage):
 
     @staticmethod
     def js_vars(player: Player):
-        return dict(timeout=Constants.timeout)
+        return dict(timeout=C.TIMEOUT)
 
     @staticmethod
     def vars_for_template(player: Player):

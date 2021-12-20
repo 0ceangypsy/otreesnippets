@@ -6,10 +6,10 @@ Rank players
 """
 
 
-class Constants(BaseConstants):
-    name_in_url = 'rank_players'
-    players_per_group = None
-    num_rounds = 1
+class C(BaseConstants):
+    NAME_IN_URL = 'rank_players'
+    PLAYERS_PER_GROUP = None
+    NUM_ROUNDS = 1
 
 
 class Subsession(BaseSubsession):

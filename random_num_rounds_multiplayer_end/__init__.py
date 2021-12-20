@@ -6,10 +6,10 @@ Your app description
 """
 
 
-class Constants(BaseConstants):
-    name_in_url = 'random_num_rounds_multiplayer_end'
-    players_per_group = None
-    num_rounds = 1
+class C(BaseConstants):
+    NAME_IN_URL = 'random_num_rounds_multiplayer_end'
+    PLAYERS_PER_GROUP = None
+    NUM_ROUNDS = 1
 
 
 class Subsession(BaseSubsession):

@@ -4,10 +4,10 @@ doc = """
 Showing other players' decisions from previous rounds
 """
 
-class Constants(BaseConstants):
-    name_in_url = 'other_player_previous_rounds'
-    players_per_group = 2
-    num_rounds = 5
+class C(BaseConstants):
+    NAME_IN_URL = 'other_player_previous_rounds'
+    PLAYERS_PER_GROUP = 2
+    NUM_ROUNDS = 5
 
 
 class Subsession(BaseSubsession):

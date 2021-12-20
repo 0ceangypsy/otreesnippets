@@ -6,10 +6,10 @@ custom_export: 1 row for each group
 """
 
 
-class Constants(BaseConstants):
-    name_in_url = 'custom_export'
-    players_per_group = 2
-    num_rounds = 1
+class C(BaseConstants):
+    NAME_IN_URL = 'custom_export'
+    PLAYERS_PER_GROUP = 2
+    NUM_ROUNDS = 1
 
 
 class Subsession(BaseSubsession):

@@ -1,10 +1,10 @@
 {{ block content }}
 
 <p>
-    This is a volunteer dilemma with {{ Constants.players_per_group }} players per group.
+    This is a volunteer dilemma with {{ C.PLAYERS_PER_GROUP }} players per group.
     If someone in the group volunteers,
-    each player will get a reward of {{ Constants.reward }}.
-    But the volunteer will pay a penalty of {{ Constants.volunteer_cost }}.
+    each player will get a reward of {{ C.REWARD }}.
+    But the volunteer will pay a penalty of {{ C.VOLUNTEER_COST }}.
 </p>
 
 <button type="button" class="btn btn-primary" onclick="sendVolunteer()">I volunteer</button>

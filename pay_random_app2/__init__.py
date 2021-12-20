@@ -5,10 +5,10 @@ doc = """
 """
 
 
-class Constants(BaseConstants):
-    name_in_url = 'pay_random_app2'
-    players_per_group = None
-    num_rounds = 1
+class C(BaseConstants):
+    NAME_IN_URL = 'pay_random_app2'
+    PLAYERS_PER_GROUP = None
+    NUM_ROUNDS = 1
 
 
 class Subsession(BaseSubsession):

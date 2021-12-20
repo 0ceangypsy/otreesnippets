@@ -15,15 +15,15 @@ def cumsum(lst):
     return new
 
 
-class Constants(BaseConstants):
-    name_in_url = 'supergames'
-    players_per_group = None
+class C(BaseConstants):
+    NAME_IN_URL = 'supergames'
+    PLAYERS_PER_GROUP = None
 
     # first supergame lasts 2 rounds, second supergame lasts 3 rounds, etc...
-    rounds_per_sg = [2, 3, 4, 5]
-    sg_ends = cumsum(rounds_per_sg)
-    # print('sg_ends is', sg_ends)
-    num_rounds = sum(rounds_per_sg)
+    ROUNDS_PER_SG = [2, 3, 4, 5]
+    SG_ENDS = cumsum(ROUNDS_PER_SG)
+    # print('SG_ENDS is', SG_ENDS)
+    NUM_ROUNDS = sum(ROUNDS_PER_SG)
 
 
 class Subsession(BaseSubsession):
@@ -37,11 +37,11 @@ def creating_session(subsession: Subsession):
         sg = 1
         period = 1
         # loop over all subsessions
-        for ss in subsession.in_rounds(1, Constants.num_rounds):
+        for ss in subsession.in_rounds(1, C.NUM_ROUNDS):
             ss.sg = sg
             ss.period = period
             # 'in' gives you a bool. for example: 5 in [1, 5, 6] # => True
-            is_last_period = ss.round_number in Constants.sg_ends
+            is_last_period = ss.round_number in C.SG_ENDS
             ss.is_last_period = is_last_period
             if is_last_period:
                 sg += 1

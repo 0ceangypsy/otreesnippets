@@ -5,10 +5,10 @@ Simple version of comprehension test
 """
 
 
-class Constants(BaseConstants):
-    name_in_url = 'comprehension_test_simple'
-    players_per_group = None
-    num_rounds = 1
+class C(BaseConstants):
+    NAME_IN_URL = 'comprehension_test_simple'
+    PLAYERS_PER_GROUP = None
+    NUM_ROUNDS = 1
 
 
 class Subsession(BaseSubsession):

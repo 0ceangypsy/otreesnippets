@@ -6,10 +6,10 @@ doc = """
 """
 
 
-class Constants(BaseConstants):
-    name_in_url = 'are_you_sure'
-    players_per_group = None
-    num_rounds = 1
+class C(BaseConstants):
+    NAME_IN_URL = 'are_you_sure'
+    PLAYERS_PER_GROUP = None
+    NUM_ROUNDS = 1
 
 
 class Subsession(BaseSubsession):

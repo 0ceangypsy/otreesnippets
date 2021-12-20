@@ -6,11 +6,11 @@ Chat with experimenter, using Papercups
 """
 
 
-class Constants(BaseConstants):
-    name_in_url = 'chat_with_experimenter'
-    players_per_group = None
-    num_rounds = 1
-    papercups_template = __name__ + '/papercups.html'
+class C(BaseConstants):
+    NAME_IN_URL = 'chat_with_experimenter'
+    PLAYERS_PER_GROUP = None
+    NUM_ROUNDS = 1
+    PAPERCUPS_TEMPLATE = __name__ + '/papercups.html'
 
 
 class Subsession(BaseSubsession):

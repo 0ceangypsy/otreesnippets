@@ -8,10 +8,10 @@ Your app description
 TREATMENTS = ['red', 'blue', 'green']
 
 
-class Constants(BaseConstants):
-    name_in_url = 'balance_treatments_for_dropouts'
-    players_per_group = None
-    num_rounds = 1
+class C(BaseConstants):
+    NAME_IN_URL = 'balance_treatments_for_dropouts'
+    PLAYERS_PER_GROUP = None
+    NUM_ROUNDS = 1
 
 
 class Subsession(BaseSubsession):

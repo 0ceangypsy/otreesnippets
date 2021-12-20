@@ -12,11 +12,11 @@ This app can also help you learn about live pages in general.
 """
 
 
-class Constants(BaseConstants):
-    name_in_url = 'chat_from_scratch'
-    players_per_group = None
-    num_rounds = 1
-    chat_template = __name__ + '/chat.html'
+class C(BaseConstants):
+    NAME_IN_URL = 'chat_from_scratch'
+    PLAYERS_PER_GROUP = None
+    NUM_ROUNDS = 1
+    CHAT_TEMPLATE = __name__ + '/chat.html'
 
 
 class Subsession(BaseSubsession):

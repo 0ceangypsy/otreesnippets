@@ -6,10 +6,10 @@ Dropout detection for multiplayer game (end the game)
 """
 
 
-class Constants(BaseConstants):
-    name_in_url = 'dropout_end_game'
-    players_per_group = None
-    num_rounds = 5
+class C(BaseConstants):
+    NAME_IN_URL = 'dropout_end_game'
+    PLAYERS_PER_GROUP = None
+    NUM_ROUNDS = 5
 
 
 class Subsession(BaseSubsession):

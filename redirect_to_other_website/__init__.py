@@ -3,10 +3,10 @@ from otree.api import *
 
 
 
-class Constants(BaseConstants):
-    name_in_url = 'redirect_to_other_website'
-    players_per_group = None
-    num_rounds = 1
+class C(BaseConstants):
+    NAME_IN_URL = 'redirect_to_other_website'
+    PLAYERS_PER_GROUP = None
+    NUM_ROUNDS = 1
 
 
 class Subsession(BaseSubsession):
