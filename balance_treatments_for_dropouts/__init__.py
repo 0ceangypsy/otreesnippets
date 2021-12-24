@@ -5,13 +5,12 @@ doc = """
 Your app description
 """
 
-TREATMENTS = ['red', 'blue', 'green']
-
 
 class C(BaseConstants):
     NAME_IN_URL = 'balance_treatments_for_dropouts'
     PLAYERS_PER_GROUP = None
     NUM_ROUNDS = 1
+    TREATMENTS = ['red', 'blue', 'green']
 
 
 class Subsession(BaseSubsession):
@@ -20,7 +19,7 @@ class Subsession(BaseSubsession):
 
 def creating_session(subsession: Subsession):
     session = subsession.session
-    session.completions_by_treatment = {color: 0 for color in TREATMENTS}
+    session.completions_by_treatment = {color: 0 for color in C.TREATMENTS}
 
 
 class Group(BaseGroup):
@@ -38,7 +37,7 @@ class Intro(Page):
         session = player.session
 
         player.color = min(
-            TREATMENTS, key=lambda color: session.completions_by_treatment[color],
+            C.TREATMENTS, key=lambda color: session.completions_by_treatment[color],
         )
 
 
